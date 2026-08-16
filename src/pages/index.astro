@@ -93,7 +93,7 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     <!-- ============================================================== -->
     <div class="services-wrap">
       <div class="services-half-bg" aria-hidden="true"></div>
-    <section id="nails" class="section services-half services-half--img-left" aria-labelledby="nails-title">
+    <section id="nails" class="section services-half services-half--img-left services-half--tight" aria-labelledby="nails-title">
       <div class="services-half-grid">
         <div class="services-half-media">
           <h2 class="display services-half-title services-half-title--above">The Menu</h2>
@@ -110,6 +110,7 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
         </div>
 
         <div class="services-half-text">
+          <p class="mono services-half-kicker">The menu</p>
           <h2 id="nails-title" class="display services-half-title">Nails</h2>
 
           <details class="services-dropdown">
@@ -751,6 +752,15 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
   .services-half-title--above {
     margin: 0;
     color: var(--bone);
+  }
+  /* Tighten top padding so 'The Menu' hugs the marquee */
+  .services-half--tight {
+    padding-top: var(--space-5);
+  }
+  @media (min-width: 768px) {
+    .services-half--tight {
+      padding-top: var(--space-6);
+    }
   }
   .services-half-text {
     display: flex;
