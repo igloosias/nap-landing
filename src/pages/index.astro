@@ -788,7 +788,33 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     text-stroke: 3px var(--ink);
     paint-order: stroke fill;
   }
-  .services-dropdown { margin-top: var(--space-4); }
+  .services-dropdown { margin-top: var(--space-5); border-top: 1px solid var(--hairline-bone); }
+  .services-dropdown-summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding: var(--space-4) 0;
+    color: var(--bone);
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .services-dropdown-summary::-webkit-details-marker { display: none; }
+  .services-dropdown-summary:hover { color: var(--signal); }
+  .services-dropdown-summary:focus-visible {
+    outline: 2px solid var(--signal);
+    outline-offset: 4px;
+  }
+  .services-dropdown-eyebrow {
+    color: var(--bone);
+    opacity: 0.7;
+    transition: opacity var(--dur-fast) var(--ease);
+  }
+  .services-dropdown[open] .services-dropdown-eyebrow { opacity: 1; }
+  .services-dropdown-body {
+    padding: var(--space-3) 0 var(--space-5);
+  }
 
   .section-head-row {
     display: flex;
@@ -816,55 +842,63 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     margin: 0;
     padding: 0;
   }
-  .service-list > * + * { border-top: 1px solid var(--hairline); }
+  .service-list > * + * { border-top: 1px solid var(--hairline-bone); }
   .service-list-sub { margin-top: var(--space-2); }
 
   .service-row { transition: background var(--dur-fast) var(--ease); }
-  .service-row:hover { background: rgba(233, 75, 140, 0.06); }
+  .service-row:hover { background: rgba(233, 75, 140, 0.08); }
 
   .service-link {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     gap: var(--space-4);
-    padding: var(--space-3) 0;
+    padding: var(--space-4) var(--space-3);
+    margin: 0 calc(var(--space-3) * -1);
     text-decoration: none;
-    color: var(--ink);
+    color: var(--bone);
+    border-radius: var(--radius);
+    transition: color var(--dur-fast) var(--ease);
   }
+  .service-link:hover { color: var(--signal); }
   .service-link:focus-visible {
     outline: 2px solid var(--signal);
-    outline-offset: 4px;
+    outline-offset: 2px;
   }
 
   .service-name {
     font-family: var(--font-display);
-    font-weight: 700;
-    font-size: clamp(16px, 1.6vw, 19px);
-    letter-spacing: -0.015em;
-    line-height: 1.2;
+    font-weight: 500;
+    font-size: clamp(15px, 1.4vw, 17px);
+    letter-spacing: -0.005em;
+    line-height: 1.3;
   }
   .service-price {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: clamp(15px, 1.4vw, 17px);
-    letter-spacing: -0.01em;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: var(--t-mono);
+    letter-spacing: 0.06em;
     white-space: nowrap;
-    color: var(--signal);
+    color: var(--bone);
+    opacity: 0.75;
   }
+  .service-link:hover .service-price { color: var(--signal); opacity: 1; }
 
   .services-sub,
   .services-refill {
-    margin-top: var(--space-7);
-    padding-top: var(--space-4);
-    border-top: 1px solid var(--hairline);
+    margin-top: var(--space-6);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--hairline-bone);
   }
   .services-refill {
-    border: 1px solid var(--hairline);
+    border: 1px solid var(--hairline-bone);
     padding: var(--space-5);
-    background: rgba(255, 255, 255, 0.40);
+    background: rgba(245, 241, 234, 0.04);
+    border-radius: var(--radius);
   }
   .services-sub-kicker {
-    color: var(--ink-50);
+    color: var(--bone);
+    opacity: 0.6;
     margin: 0 0 var(--space-3);
   }
 
