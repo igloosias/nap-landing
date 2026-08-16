@@ -95,20 +95,21 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
       <div class="services-half-bg" aria-hidden="true"></div>
     <section id="nails" class="section services-half services-half--img-left" aria-labelledby="nails-title">
       <div class="services-half-grid">
-        <figure class="services-half-figure">
-          <img
-            src="/assets/nail-section.webp"
-            alt={serviceImages.alt.nails}
-            width="1280"
-            height="698"
-            loading="lazy"
-            decoding="async"
-          />
-          <h2 class="display services-half-title services-half-title--overlay">The Menu</h2>
-        </figure>
+        <div class="services-half-media">
+          <h2 class="display services-half-title services-half-title--above">The Menu</h2>
+          <figure class="services-half-figure">
+            <img
+              src="/assets/nail-section.webp"
+              alt={serviceImages.alt.nails}
+              width="1280"
+              height="698"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
 
         <div class="services-half-text">
-          <p class="mono services-half-kicker">The menu</p>
           <h2 id="nails-title" class="display services-half-title">Nails</h2>
 
           <details class="services-dropdown">
@@ -742,19 +743,14 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     object-position: center;
     display: block;
   }
-  .services-half-title--overlay {
-    position: absolute;
-    top: var(--space-5);
-    left: var(--space-5);
-    margin: 0;
-    text-shadow: 0 2px 18px rgba(10, 10, 10, 0.55);
-    pointer-events: none;
+  .services-half-media {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
   }
-  @media (min-width: 768px) {
-    .services-half-title--overlay {
-      top: var(--space-6);
-      left: var(--space-6);
-    }
+  .services-half-title--above {
+    margin: 0;
+    color: var(--bone);
   }
   .services-half-text {
     display: flex;
