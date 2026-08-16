@@ -44,6 +44,19 @@
     }
   },
 
+  "brands": [
+    { "alt": "OPI" },
+    { "alt": "Essie" },
+    { "alt": "Kiara Sky" },
+    { "alt": "The GelBottle Inc" },
+    { "alt": "DND" },
+    { "alt": "Young Nails" },
+    { "alt": "Bio Seaweed Gel" },
+    { "alt": "NovaLash" },
+    { "alt": "Velour Lashes" },
+    { "alt": "Lashify" }
+  ],
+
   "nav": [
     { "href": "#nails", "label": "Menu" },
     { "href": "#how", "label": "How" },

@@ -209,6 +209,13 @@ The form language is sharp. Surface elements — skip link, hairlines, FAQ rows,
 
 ## Components
 
+### Brand Marquee (`.brand-marquee`)
+- **Placement:** divider between hero and services sections. Ink canvas, hairline-bone borders (1px top + bottom), centered "Trusted brands" eyebrow in mono 10px 0.22em tracking at 0.5 alpha.
+- **Marquee:** React component (`src/components/LogoMarquee.tsx`) using motion/react's `useMotionValue` + `animate`. Renders 10 beauty brand wordmarks twice (OPI, Essie, Kiara Sky, The GelBottle Inc, DND, Young Nails, Bio Seaweed Gel, NovaLash, Velour Lashes, Lashify). 80s loop, hover speeds to 25s, gap 42px.
+- **Wordmark style:** `.logo-marquee-wordmark` — display font 600, 14px, 0.18em tracking, uppercase, 0.78 opacity. Self-contained — no third-party logo assets.
+- **Edge mask:** CSS mask-image fades the row to transparent at 0–12% and 88–100% so the loop reads as infinite.
+- **Reduced motion:** loop continues (it's CSS-driven low-impact motion); if needed, easy to gate via `prefers-reduced-motion`.
+
 ### CTA (Primary)
 - **Shape:** pill (`border-radius: 999px`). The system default 4px is reserved for surfaces; CTAs earn the pill.
 - **Primary:** Signal Pink (`#E94B8C`) flat fill, Bone (`#F5F1EA`) text, mono 11px uppercase, 0.18em tracking, 14px / 24px padding, ~48px min-height. Inline SVG arrow on the trailing edge (`M3 10h13M11 5l5 5-5 5`, square caps, miter joins). No border.
