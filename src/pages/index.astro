@@ -310,7 +310,9 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
                 </svg>
               </summary>
               <div class="faq-a-wrap">
-                <p class="faq-a">{f.a}</p>
+                <div class="faq-a-inner">
+                  <p class="faq-a">{f.a}</p>
+                </div>
               </div>
             </details>
           ))}
@@ -1287,16 +1289,20 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     transform: rotate(90deg);
     opacity: 0;
   }
-  /* Answer slide-reveal: collapse to height:0 when closed, ease
-     open/close via interpolate-size. Modern browsers only. */
+  /* Answer slide-reveal: grid-template-rows 0fr -> 1fr trick so
+     height animates without layout thrash. */
   .faq-a-wrap {
-    display: flex;
-    justify-content: flex-end;
-    height: 0;
-    overflow: hidden;
-    transition: height var(--dur-slow) var(--ease);
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--dur-slow) var(--ease);
   }
-  .faq-item[open] .faq-a-wrap { height: auto; }
+  .faq-a-wrap > .faq-a-inner {
+    min-height: 0;
+    overflow: hidden;
+  }
+  .faq-item[open] .faq-a-wrap {
+    grid-template-rows: 1fr;
+  }
   .faq-a {
     position: relative;
     margin: var(--space-3) 0 var(--space-2);
