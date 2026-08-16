@@ -232,7 +232,7 @@ The form language is sharp. Surface elements — skip link, hairlines, FAQ rows,
 - **Image:** `16 / 9` aspect, `object-fit: cover`, ink figure well behind, `var(--radius-image)` (16px) corners, `box-shadow: 0 24px 60px -32px rgba(10, 10, 10, 0.35)` for soft lift off the gradient.
 - **Service list:** hairline-separated rows. Service name left (General Sans 700, 16–19px), price right (Signal Pink, 15–17px). Hover background `rgba(233, 75, 140, 0.06)`.
 - **Sub-list:** extensions (nails) or refills (lashes) carry their own kicker and bordered card.
-- **Divider:** `.services-divider` — inline SVG hand-drawn squiggle (two layered quadratic-bezier paths with offset y-values, second path at 0.8 weight + 0.5 opacity for sketch feel), bone stroke at 0.75 alpha, ~420px wide, sits between the nails and lashes sections inside the shared `.services-wrap` canvas.
+- **Divider:** `.services-divider` — inline SVG hand-drawn squiggle (two layered quadratic-bezier paths spanning 1200 viewBox-units, primary at 3.5px ink stroke, secondary at 2px 0.6 opacity for sketch feel). Full container width (max 1200px), ink color, 40px tall. Sits between the nails and lashes sections inside the shared `.services-wrap` canvas.
 
 ### FAQ Item (`.faq-item`)
 - **Style:** 1px hairline between rows; first row opens by default, rest collapsed. Native `<details>` element.
