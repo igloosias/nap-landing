@@ -268,6 +268,8 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
       </div>
     </section>
 
+    <div class="ink-divider" aria-hidden="true"></div>
+
     <!-- ============================================================== -->
     <!-- FAQ — sticky side panel                                       -->
     <!-- ============================================================== -->
@@ -973,13 +975,21 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
   .how {
     position: relative;
     overflow: hidden;
-    background: var(--bone-2);
-    border-top: 1px solid var(--hairline);
-    border-bottom: 1px solid var(--hairline);
+    background: transparent;
+    border-top: 0;
+    border-bottom: 0;
     padding-top: var(--space-5);
   }
   @media (min-width: 768px) {
     .how { padding-top: var(--space-6); }
+  }
+  /* Solid ink divider — sits between 'Get Booked.' and FAQ.
+     Same gradient bg on both sides reads as one continuous
+     canvas; this strip is the only break. */
+  .ink-divider {
+    height: 6px;
+    width: 100%;
+    background: var(--ink);
   }
   /* Static radial-gradient + SVG turbulence noise — ported from
      noisy-gradient-backgrounds prompt, adapted to NAP palette.
@@ -1137,7 +1147,8 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
   .faq {
     position: relative;
     overflow: hidden;
-    border-top: 1px solid var(--hairline);
+    background: transparent;
+    border-top: 0;
     padding-top: var(--space-9);
     padding-bottom: var(--space-9);
   }
