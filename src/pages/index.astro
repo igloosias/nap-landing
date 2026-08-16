@@ -875,9 +875,10 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     color: var(--ink-70);
   }
   /* Checkered divider (pink + purple) — sits between lashes area and
-     'Get Booked.' Pure CSS checkered pattern, mirrors the B/W variant. */
+     'Get Booked.' Same architecture as the B/W variant: 28px tile,
+     diagonal gradient stack, bone base. */
   .checkered-divider--pink {
-    height: 40px;
+    height: 28px;
     width: 100%;
     margin: var(--space-5) 0;
     background-image:
@@ -885,8 +886,8 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
       linear-gradient(-45deg, #E94B8C 25%, transparent 25%),
       linear-gradient(45deg, transparent 75%, #7C4DFF 75%),
       linear-gradient(-45deg, transparent 75%, #7C4DFF 75%);
-    background-size: 40px 40px;
-    background-position: 0 0, 0 20px, 20px -20px, -20px 0;
+    background-size: 28px 28px;
+    background-position: 0 0, 0 14px, 14px -14px, -14px 0;
     background-color: var(--bone);
   }
 
