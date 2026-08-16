@@ -135,6 +135,13 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
       </div>
     </section>
 
+    <div class="services-divider" aria-hidden="true">
+      <svg viewBox="0 0 600 40" preserveAspectRatio="none" focusable="false">
+        <path d="M5 20 Q 60 8, 120 22 T 240 18 Q 300 28, 360 16 T 480 22 Q 540 14, 595 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M8 22 Q 70 14, 130 26 T 250 22 Q 310 30, 370 20 T 490 24 Q 545 18, 593 23" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" opacity="0.5" />
+      </svg>
+    </div>
+
     <section id="lashes" class="section services-half services-half--img-right" aria-labelledby="lashes-title">
       <div class="services-half-grid">
         <div class="services-half-text">
@@ -682,6 +689,18 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
   .services-half {
     padding-top: var(--space-9);
     padding-bottom: var(--space-9);
+  }
+  /* Hand-drawn divider between nails + lashes */
+  .services-divider {
+    display: flex;
+    justify-content: center;
+    padding: var(--space-4) 0;
+    color: var(--bone);
+    opacity: 0.75;
+  }
+  .services-divider svg {
+    width: min(420px, 70%);
+    height: 28px;
   }
   .services-half-grid {
     display: grid;
