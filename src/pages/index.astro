@@ -82,7 +82,6 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     <section id="nails" class="section services-half services-half--img-left" aria-labelledby="nails-title">
       <div class="services-half-grid">
         <figure class="services-half-figure">
-          <p class="services-half-caption">The Menu</p>
           <img
             src="/assets/nail-section.webp"
             alt={serviceImages.alt.nails}
@@ -94,6 +93,7 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
         </figure>
 
         <div class="services-half-text">
+          <p class="mono services-half-kicker">The menu</p>
           <h2 id="nails-title" class="display services-half-title">Nails</h2>
 
           <details class="services-dropdown">
@@ -178,7 +178,6 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
         </div>
 
         <figure class="services-half-figure">
-          <p class="services-half-caption">The Menu</p>
           <img
             src="/assets/lash-section.webp"
             alt={serviceImages.alt.lashes}
@@ -712,19 +711,7 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     box-shadow: 0 24px 60px -32px rgba(10, 10, 10, 0.35);
     position: relative;
   }
-  /* 'The Menu' caption sits ABOVE the figure as a separate header,
-     not overlaid on the image. */
-  .services-half-caption {
-    display: block;
-    margin: 0 0 var(--space-3);
-    color: var(--bone);
-    font-family: var(--font-display);
-    font-size: clamp(20px, 3vw, 36px);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    line-height: 1;
-  }
+  /* Caption rule removed — small kicker lives in text column again */
   .services-half-figure img {
     width: 100%;
     height: 100%;
@@ -742,7 +729,10 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
   @media (min-width: 768px) {
     .services-half-text { padding: var(--space-7); }
   }
-  /* .services-half-kicker rule removed — caption now lives on the figure */
+  .services-half-kicker {
+    color: rgba(245, 241, 234, 0.6);
+    margin: 0;
+  }
   .services-half-title {
     font-size: clamp(48px, 6vw, 80px);
     letter-spacing: -0.035em;
