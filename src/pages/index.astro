@@ -222,10 +222,7 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     <section id="how" class="section how" aria-labelledby="how-title">
       <div class="container">
         <div class="section-head-row">
-          <div>
-            <p class="mono kicker">Chapter 03</p>
-            <h2 id="how-title" class="display section-h2 rainbow-title">Get Booked<span class="dot">.</span></h2>
-          </div>
+          <h2 id="how-title" class="display section-h2 rainbow-title rainbow-title--lead">Get Booked<span class="dot">.</span></h2>
           <p class="italic section-lede">{how.lede}</p>
         </div>
 
@@ -818,7 +815,7 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
 
   .section-head-row {
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: space-between;
     gap: var(--space-6);
     margin-bottom: var(--space-9);
@@ -852,6 +849,26 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
       26px 130px #007DB2, 26px 132px var(--ink),
       28px 140px #00B8D9, 28px 142px var(--ink);
     line-height: 100%;
+  }
+  .rainbow-title--lead {
+    font-size: clamp(64px, 9vw, 132px);
+    letter-spacing: -0.04em;
+    margin: 0;
+    text-shadow:
+      1px 5px #FFD20E, 1px 6px var(--ink),
+      2px 10px #E5BC08, 2px 11px var(--ink),
+      3px 15px #EC8401, 3px 16px var(--ink),
+      4px 20px #E65C04, 4px 21px var(--ink),
+      5px 25px #E52E06, 5px 26px var(--ink),
+      6px 30px #DE006B, 6px 31px var(--ink),
+      7px 35px #CA039E, 7px 36px var(--ink),
+      8px 40px #A203CB, 8px 41px var(--ink),
+      9px 45px #6D01C9, 9px 46px var(--ink),
+      10px 50px #22008F, 10px 51px var(--ink),
+      11px 55px #062F9A, 11px 56px var(--ink),
+      12px 60px #0045AC, 12px 61px var(--ink),
+      13px 65px #007DB2, 13px 66px var(--ink),
+      14px 70px #00B8D9, 14px 71px var(--ink);
   }
   @media (max-width: 400px) {
     .rainbow-title {
