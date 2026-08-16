@@ -181,6 +181,11 @@
         "rule": "gradient-text",
         "value": "rainbow-title media query mobile fallback gradient text",
         "createdAt": "2026-08-16T11:50:32.460Z"
+      },
+      {
+        "rule": "gradient-text",
+        "value": "l908 rainbow-title background-clip text mobile fallback",
+        "createdAt": "2026-08-16T11:52:24.370Z"
       }
     ]
   }
