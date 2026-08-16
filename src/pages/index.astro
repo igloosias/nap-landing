@@ -272,6 +272,15 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     <!-- FAQ — sticky side panel                                       -->
     <!-- ============================================================== -->
     <section id="faq" class="section faq" aria-labelledby="faq-title">
+      <div class="faq-bg" aria-hidden="true">
+        <svg class="faq-noise" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <filter id="faq-noise-filter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" seed="7"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0"/>
+          </filter>
+          <rect width="100%" height="100%" filter="url(#faq-noise-filter)"/>
+        </svg>
+      </div>
       <div class="container faq-grid">
         <div class="faq-side">
           <p class="mono kicker">Chapter 05</p>
@@ -1125,10 +1134,36 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
   /* FAQ                                                            */
   /* ============================================================== */
   .faq {
+    position: relative;
+    overflow: hidden;
     border-top: 1px solid var(--hairline);
-    padding-top: var(--space-10);
-    padding-bottom: var(--space-10);
+    padding-top: var(--space-9);
+    padding-bottom: var(--space-9);
   }
+  .faq-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(125% 125% at 50% 101%,
+        rgba(49, 5, 39, 1) 0%,
+        rgba(124, 30, 75, 1) 14%,
+        rgba(233, 75, 140, 1) 24%,
+        rgba(245, 200, 180, 1) 45%,
+        rgba(238, 174, 202, 1) 65%,
+        rgba(202, 179, 214, 1) 82%,
+        rgba(245, 241, 234, 1) 100%);
+  }
+  .faq-noise {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.18;
+    mix-blend-mode: overlay;
+  }
+  .faq > .container { position: relative; z-index: 1; }
   .faq-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -1146,16 +1181,17 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     line-height: 1.4;
     margin: var(--space-5) 0 0;
     max-width: 36ch;
+    color: var(--bone);
   }
   .faq-side-cta { margin-top: var(--space-7); }
 
   .faq-list-wrap {
-    border-top: 1px solid var(--hairline);
-    border-bottom: 1px solid var(--hairline);
+    border-top: 1px solid var(--hairline-bone);
+    border-bottom: 1px solid var(--hairline-bone);
   }
-  .faq-list-wrap > * + * { border-top: 1px solid var(--hairline); }
+  .faq-list-wrap > * + * { border-top: 1px solid var(--hairline-bone); }
   .faq-item { padding: 0; transition: background var(--dur-fast) var(--ease); }
-  .faq-item[open] { background: var(--bone-2); }
+  .faq-item[open] { background: rgba(245, 241, 234, 0.06); }
 
   .faq-summary {
     display: flex;
@@ -1166,13 +1202,15 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     cursor: pointer;
     list-style: none;
     user-select: none;
+    color: var(--bone);
   }
   .faq-summary::-webkit-details-marker { display: none; }
-  .faq-meta { color: var(--ink-50); margin: 0; }
+  .faq-meta { color: var(--bone); opacity: 0.6; margin: 0; }
   .faq-q {
     margin: 4px 0 0;
     font-size: clamp(22px, 2.4vw, 28px);
     letter-spacing: -0.02em;
+    color: var(--bone);
   }
   .faq-chev {
     color: var(--signal);
