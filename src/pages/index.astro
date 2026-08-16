@@ -661,20 +661,20 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     overflow: hidden;
     isolation: isolate;
   }
-  /* Adapted Almoayyed gradient — recolored to ink/bone editorial palette.
-     Same recipe structure (base + 4 radial stops + grain pass + overlay blend). */
+  /* Adapted Almoayyed gradient — original palette (warm gray base + plum
+     radials + white lift + grain pass). 1:1 from the 21st.dev recipe. */
   .services-half-bg {
     position: absolute;
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    background-color: var(--bone);
+    background-color: #D7D5D5;
     background-image:
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.28'/%3E%3C/svg%3E"),
-      radial-gradient(circle at 66.94% 46.43%, rgba(245, 241, 234, 1) 0%, rgba(245, 241, 234, 0.844) 19.02%, rgba(245, 241, 234, 0.5) 38.05%, rgba(245, 241, 234, 0.156) 57.07%, rgba(245, 241, 234, 0) 76.1%),
-      radial-gradient(circle at 34.69% 66.31%, rgba(10, 10, 10, 1) 0%, rgba(10, 10, 10, 0.844) 12.73%, rgba(10, 10, 10, 0.5) 25.45%, rgba(10, 10, 10, 0.156) 38.18%, rgba(10, 10, 10, 0) 50.9%),
-      radial-gradient(circle at 48.93% 19.32%, rgba(10, 10, 10, 1) 0%, rgba(10, 10, 10, 0.844) 16.75%, rgba(10, 10, 10, 0.5) 33.5%, rgba(10, 10, 10, 0.156) 50.25%, rgba(10, 10, 10, 0) 67%),
-      radial-gradient(circle at 80.23% 87.54%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.4) 10.28%, rgba(255, 255, 255, 0.2) 20.55%, rgba(255, 255, 255, 0.08) 30.83%, rgba(255, 255, 255, 0) 41.1%);
+      radial-gradient(circle at 66.94% 46.43%, rgba(215, 213, 213, 1) 0%, rgba(215, 213, 213, 0.844) 19.02%, rgba(215, 213, 213, 0.5) 38.05%, rgba(215, 213, 213, 0.156) 57.07%, rgba(215, 213, 213, 0) 76.1%),
+      radial-gradient(circle at 34.69% 66.31%, rgba(49, 5, 39, 1) 0%, rgba(49, 5, 39, 0.844) 12.73%, rgba(49, 5, 39, 0.5) 25.45%, rgba(49, 5, 39, 0.156) 38.18%, rgba(49, 5, 39, 0) 50.9%),
+      radial-gradient(circle at 48.93% 19.32%, rgba(57, 5, 31, 1) 0%, rgba(57, 5, 31, 0.844) 16.75%, rgba(57, 5, 31, 0.5) 33.5%, rgba(57, 5, 31, 0.156) 50.25%, rgba(57, 5, 31, 0) 67%),
+      radial-gradient(circle at 80.23% 87.54%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.844) 10.28%, rgba(255, 255, 255, 0.5) 20.55%, rgba(255, 255, 255, 0.156) 30.83%, rgba(255, 255, 255, 0) 41.1%);
     background-size: 120px 120px, auto, auto, auto, auto;
     background-blend-mode: overlay, normal, normal, normal, normal;
   }
