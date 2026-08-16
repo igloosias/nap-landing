@@ -104,6 +104,7 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
             loading="lazy"
             decoding="async"
           />
+          <h2 class="display services-half-title services-half-title--overlay">The Menu</h2>
         </figure>
 
         <div class="services-half-text">
@@ -740,6 +741,20 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     object-fit: cover;
     object-position: center;
     display: block;
+  }
+  .services-half-title--overlay {
+    position: absolute;
+    top: var(--space-5);
+    left: var(--space-5);
+    margin: 0;
+    text-shadow: 0 2px 18px rgba(10, 10, 10, 0.55);
+    pointer-events: none;
+  }
+  @media (min-width: 768px) {
+    .services-half-title--overlay {
+      top: var(--space-6);
+      left: var(--space-6);
+    }
   }
   .services-half-text {
     display: flex;
