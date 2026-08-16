@@ -1077,16 +1077,23 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
   }
   .how-step-sample {
     margin-top: var(--space-5);
-    padding: var(--space-4);
-    border: 1px solid var(--hairline);
-    background: var(--bone);
+    padding: var(--space-5);
+    border: 1px solid var(--hairline-bone);
+    border-radius: var(--radius-image);
+    background: rgba(245, 241, 234, 0.10);
+    box-shadow:
+      0 1px 0 rgba(245, 241, 234, 0.08) inset,
+      0 18px 40px -22px rgba(10, 10, 10, 0.55),
+      0 4px 12px -6px rgba(10, 10, 10, 0.4);
   }
   .how-sample-who {
-    color: var(--ink-50);
+    color: var(--bone);
+    opacity: 0.6;
     margin: 0 0 4px;
   }
   .how-sample-text {
     margin: 0;
+    color: var(--bone);
     font-size: 16px;
     line-height: 1.4;
   }
