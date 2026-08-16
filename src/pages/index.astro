@@ -110,6 +110,7 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
         </div>
 
         <div class="services-half-text">
+          <span class="services-ghost" aria-hidden="true">01</span>
           <p class="mono services-half-kicker">The menu</p>
           <h2 id="nails-title" class="display services-half-title">Nails</h2>
 
@@ -157,6 +158,8 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     <section id="lashes" class="section services-half services-half--img-right" aria-labelledby="lashes-title">
       <div class="services-half-grid">
         <div class="services-half-text">
+          <span class="services-ghost" aria-hidden="true">02</span>
+          <p class="mono services-half-kicker">The menu</p>
           <h2 id="lashes-title" class="display services-half-title">Lashes</h2>
 
           <details class="services-dropdown">
@@ -744,7 +747,22 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     object-fit: cover;
     object-position: center;
     display: block;
+    transition: transform var(--dur-slow) var(--ease), filter var(--dur-slow) var(--ease);
   }
+  .services-half-figure:hover img {
+    transform: scale(1.02);
+  }
+  .services-half-figure::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-image);
+    background: radial-gradient(circle at 50% 50%, rgba(233, 75, 140, 0.18), transparent 60%);
+    opacity: 0;
+    transition: opacity var(--dur-slow) var(--ease);
+    pointer-events: none;
+  }
+  .services-half-figure:hover::after { opacity: 1; }
   .services-half-media {
     display: flex;
     flex-direction: column;
@@ -769,9 +787,26 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     justify-content: center;
     padding: var(--space-6);
     gap: var(--space-4);
+    position: relative;
   }
   @media (min-width: 768px) {
     .services-half-text { padding: var(--space-7); }
+  }
+  /* Ghost section number — large faded display digit floating
+     in the corner of each half-section. Decorative. */
+  .services-ghost {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-5);
+    font-family: var(--font-display);
+    font-size: clamp(96px, 14vw, 200px);
+    line-height: 0.8;
+    font-weight: 900;
+    color: var(--bone);
+    opacity: 0.05;
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: -0.05em;
   }
   .services-half-kicker {
     color: rgba(245, 241, 234, 0.6);
