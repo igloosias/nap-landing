@@ -217,26 +217,9 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     </div>
 
     <!-- ============================================================== -->
-    <!-- SQUIGGLE DIVIDER — between lashes area and 'Get Booked.'     -->
+    <!-- CHECKERED DIVIDER — between lashes area and 'Get Booked.'    -->
     <!-- ============================================================== -->
-    <div class="squiggle-divider" aria-hidden="true">
-      <svg viewBox="0 0 1200 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="squiggle-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#F5F1EA"/>
-            <stop offset="50%" stop-color="#E94B8C"/>
-            <stop offset="100%" stop-color="#7C4DFF"/>
-          </linearGradient>
-        </defs>
-        <path
-          d="M0,20 C50,5 100,35 150,20 C200,5 250,35 300,20 C350,5 400,35 450,20 C500,5 550,35 600,20 C650,5 700,35 750,20 C800,5 850,35 900,20 C950,5 1000,35 1050,20 C1100,5 1150,35 1200,20"
-          fill="none"
-          stroke="url(#squiggle-gradient)"
-          stroke-width="3"
-          stroke-linecap="round"
-        />
-      </svg>
-    </div>
+    <div class="checkered-divider checkered-divider--pink" aria-hidden="true"></div>
 
     <!-- ============================================================== -->
     <!-- HOW IT WORKS — sample chats                                   -->
@@ -891,21 +874,20 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     max-width: 38ch;
     color: var(--ink-70);
   }
-  /* Squiggle divider — sits between lashes area and 'Get Booked.'
-     Pure SVG path: bone → signal → purple gradient stroke, no fill,
-     no background. Wrapper + svg both explicitly transparent. */
-  .squiggle-divider {
-    width: 100%;
+  /* Checkered divider (pink + purple) — sits between lashes area and
+     'Get Booked.' Pure CSS checkered pattern, mirrors the B/W variant. */
+  .checkered-divider--pink {
     height: 40px;
-    margin: var(--space-5) 0;
-    background: transparent;
-    pointer-events: none;
-  }
-  .squiggle-divider svg {
     width: 100%;
-    height: 100%;
-    display: block;
-    background: transparent;
+    margin: var(--space-5) 0;
+    background-image:
+      linear-gradient(45deg, #E94B8C 25%, transparent 25%),
+      linear-gradient(-45deg, #E94B8C 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #7C4DFF 75%),
+      linear-gradient(-45deg, transparent 75%, #7C4DFF 75%);
+    background-size: 40px 40px;
+    background-position: 0 0, 0 20px, 20px -20px, -20px 0;
+    background-color: var(--bone);
   }
 
   .service-list {
