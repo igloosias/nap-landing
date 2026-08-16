@@ -1,6 +1,5 @@
-import React, { memo, useState, useEffect } from "react";
+import React, { memo, useState, useEffect, useRef } from "react";
 import { useMotionValue, animate, motion } from "motion/react";
-import useMeasure from "react-use-measure";
 
 export type Logo = {
   src: string;
@@ -29,70 +28,57 @@ const InfiniteSlider = memo(function InfiniteSlider({
   className,
 }: InfiniteSliderProps) {
   const [currentDuration, setCurrentDuration] = useState(duration);
-  const [ref, { width, height }] = useMeasure();
+  const innerRef = useRef<HTMLDivElement | null>(null);
+  const [contentWidth, setContentWidth] = useState(0);
   const translation = useMotionValue(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [key, setKey] = useState(0);
+
+  // Measure the doubled row width, then animate by exactly half of it
+  // so the loop snaps cleanly (one full copy of content = one cycle).
+  useEffect(() => {
+    const el = innerRef.current;
+    if (!el) return;
+
+    const measure = () => {
+      // Total scrollable width of the doubled content
+      const w = el.scrollWidth;
+      // One full copy = half of the doubled row (since children are rendered 2×)
+      const half = w / 2;
+      setContentWidth(half);
+    };
+
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   useEffect(() => {
-    const size = direction === "horizontal" ? width : height;
-    const contentSize = size + gap;
-    const from = reverse ? -contentSize / 2 : 0;
-    const to = reverse ? 0 : -contentSize / 2;
-
-    let controls;
-
-    if (isTransitioning) {
-      controls = animate(translation, [translation.get(), to], {
-        ease: "linear",
-        duration:
-          currentDuration * Math.abs((translation.get() - to) / contentSize),
-        onComplete: () => {
-          setIsTransitioning(false);
-          setKey((prev) => prev + 1);
-        },
-      });
-    } else {
-      controls = animate(translation, [from, to], {
-        ease: "linear",
-        duration: currentDuration,
-        repeat: Infinity,
-        repeatType: "loop",
-        repeatDelay: 0,
-        onRepeat: () => translation.set(from),
-      });
-    }
-
-    return controls?.stop;
-  }, [
-    key,
-    translation,
-    currentDuration,
-    width,
-    height,
-    gap,
-    isTransitioning,
-    direction,
-    reverse,
-  ]);
+    if (!contentWidth) return;
+    const from = reverse ? -contentWidth : 0;
+    const to = reverse ? 0 : -contentWidth;
+    translation.set(from);
+    const controls = animate(translation, [from, to], {
+      ease: "linear",
+      duration: currentDuration,
+      repeat: Infinity,
+      repeatType: "loop",
+      repeatDelay: 0,
+      onRepeat: () => translation.set(from),
+    });
+    return () => controls.stop();
+  }, [contentWidth, currentDuration, reverse, translation]);
 
   const hoverProps = durationOnHover
     ? {
-        onHoverStart: () => {
-          setIsTransitioning(true);
-          setCurrentDuration(durationOnHover);
-        },
-        onHoverEnd: () => {
-          setIsTransitioning(true);
-          setCurrentDuration(duration);
-        },
+        onMouseEnter: () => setCurrentDuration(durationOnHover),
+        onMouseLeave: () => setCurrentDuration(duration),
       }
     : {};
 
   return (
     <div className={("overflow-hidden " + (className ?? "")).trim()}>
       <motion.div
-        ref={ref}
+        ref={innerRef}
         className="flex w-max"
         style={{
           ...(direction === "horizontal"
