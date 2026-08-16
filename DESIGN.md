@@ -233,7 +233,7 @@ The form language is sharp. Surface elements — skip link, hairlines, FAQ rows,
 - **Service list:** hairline-separated rows. Service name left (General Sans 700, 16–19px), price right (Signal Pink, 15–17px). Hover background `rgba(233, 75, 140, 0.06)`.
 - **Sub-list:** extensions (nails) or refills (lashes) carry their own kicker and bordered card.
 - **Divider:** `.services-divider` — inline SVG hand-drawn squiggle. Two layered paths generated procedurally with randomized cubic-bezier control points (28 segments each, varying amplitudes and y-drift) for an organic pen-stroke feel. Primary at 3.5px ink stroke, secondary at 1.8px 0.55 opacity. Full container width (max 1200px), 50px tall, sits between the nails and lashes sections inside the shared `.services-wrap` canvas.
-- **Caption:** `.services-half-caption` — "The Menu" displayed absolutely positioned over the figure (bottom-center, with a soft ink-to-transparent gradient backdrop for legibility on photo). Bone color, display font (General Sans 700), uppercase, ~clamp(20–36px) fluid size. Replaces the previous text-column kicker; both `.services-half-kicker` rules removed.
+- **Caption:** `.services-half-caption` — "The Menu" displayed as a block-level header above the figure (inside the figure column, sibling above `<img>`, not overlaid on the image). Bone color, display font (General Sans 700), uppercase, clamp(20–36px) fluid size. Replaces the previous text-column kicker.
 
 ### FAQ Item (`.faq-item`)
 - **Style:** 1px hairline between rows; first row opens by default, rest collapsed. Native `<details>` element.
