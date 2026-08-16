@@ -30,18 +30,19 @@ const onScroll = () => {
     document.body.classList.toggle("is-scrolled", y > 80);
 
     if (!reduced && parallaxEls.length) {
+      const vh = window.innerHeight;
       for (const el of parallaxEls) {
         const rect = el.getBoundingClientRect();
         const elTop = rect.top + y;
         const elBottom = elTop + rect.height;
-        // Translate up while the element is visible; clamp to 15% of its height.
+        // Max offset: min(20% viewport, 30% element height) — works for tall and short heroes.
+        const maxOffset = Math.min(vh * 0.2, rect.height * 0.3);
         if (y < elTop) {
           el.style.setProperty("--parallax-y", "0px");
         } else if (y > elBottom) {
-          el.style.setProperty("--parallax-y", `${-rect.height * 0.15}px`);
+          el.style.setProperty("--parallax-y", `${-maxOffset}px`);
         } else {
           const progress = (y - elTop) / rect.height; // 0..1 while in view
-          const maxOffset = rect.height * 0.15;
           el.style.setProperty("--parallax-y", `${-progress * maxOffset}px`);
         }
       }

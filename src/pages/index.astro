@@ -24,7 +24,7 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     <!-- ============================================================== -->
     <!-- HERO — full-bleed image, parallax, layered text              -->
     <!-- ============================================================== -->
-    <section class="hero" aria-label="Hero">
+    <section class="hero" aria-labelledby="hero-title">
       <img
         class="hero-image"
         src={heroImage.src}
@@ -53,7 +53,7 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
         </header>
 
         <div class="hero-bottom">
-          <h1 class="display hero-display" aria-label={brand.heroLabel}>
+          <h1 id="hero-title" class="display hero-display">
             <span class="hero-row row-1">Nails<span class="hero-dot">.</span></span>
             <span class="hero-row row-2">Lashes<span class="hero-dot">.</span></span>
             <span class="hero-row row-3">Booked<span class="hero-dot">.</span></span>
@@ -83,8 +83,8 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
           <img
             src="/assets/nail-section.webp"
             alt={serviceImages.alt.nails}
-            width="1600"
-            height="900"
+            width="1280"
+            height="1600"
             loading="lazy"
             decoding="async"
           />
@@ -94,7 +94,7 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
           <p class="mono services-half-kicker">The menu</p>
           <h2 id="nails-title" class="display services-half-title">Nails</h2>
 
-          <details class="services-dropdown" open>
+          <details class="services-dropdown">
             <summary class="services-dropdown-summary">
               <span class="mono services-dropdown-eyebrow">Tap to view {services[0].items.length} services</span>
               <svg class="services-dropdown-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -139,7 +139,7 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
           <p class="mono services-half-kicker">The menu</p>
           <h2 id="lashes-title" class="display services-half-title">Lashes</h2>
 
-          <details class="services-dropdown" open>
+          <details class="services-dropdown">
             <summary class="services-dropdown-summary">
               <span class="mono services-dropdown-eyebrow">Tap to view {services[1].items.length} services</span>
               <svg class="services-dropdown-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -163,7 +163,7 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
                   <ul class="service-list service-list-sub" role="list">
                     {services[1].refills.map((r) => (
                       <li class="service-row">
-                        <a href={waGeneral} class="service-link" target="_blank" rel="noopener">
+                        <a href={waFor(`Lash refill · ${r.weeks}`)} class="service-link" target="_blank" rel="noopener" aria-label={`Book Lash refill · ${r.weeks} on WhatsApp`}>
                           <span class="service-name">{r.weeks}</span>
                           <span class="service-price">{r.fromPrice}</span>
                         </a>
@@ -180,8 +180,8 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
           <img
             src="/assets/lash-section.webp"
             alt={serviceImages.alt.lashes}
-            width="1600"
-            height="900"
+            width="1280"
+            height="1600"
             loading="lazy"
             decoding="async"
           />
@@ -240,12 +240,12 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     <!-- ============================================================== -->
     <!-- STATS — by the numbers                                        -->
     <!-- ============================================================== -->
-    <section class="section stats" aria-label="Stats">
+    <section class="section stats" aria-labelledby="stats-title">
       <div class="container">
         <div class="section-head-row">
           <div>
             <p class="mono kicker">Chapter 04</p>
-            <h2 class="display section-h2">By the numbers<span class="dot">·</span></h2>
+            <h2 id="stats-title" class="display section-h2">By the numbers<span class="dot">·</span></h2>
           </div>
           <p class="italic section-lede">Four years in the same room, one chair at a time.</p>
         </div>
@@ -303,11 +303,11 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     <!-- ============================================================== -->
     <!-- VISIT — come take a nap                                       -->
     <!-- ============================================================== -->
-    <section id="visit" class="section visit">
+    <section id="visit" class="section visit" aria-labelledby="visit-title">
       <div class="container visit-grid">
         <div class="visit-left">
           <p class="mono kicker visit-kicker">Chapter 06 — {visit.eyebrow}</p>
-          <h2 class="display visit-title">
+          <h2 id="visit-title" class="display visit-title">
             {visit.titleLead} <span class="italic visit-accent">{visit.titleAccent}</span><br />{visit.titleTrail}<span class="dot">·</span>
           </h2>
           <p class="italic visit-lede">{visit.lede}</p>

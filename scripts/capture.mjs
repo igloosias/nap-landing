@@ -5,7 +5,7 @@ import { resolve } from "node:path";
 const REVIEW_DIR = "/Users/tyasiglesias/Desktop/NAP LANDING PAG/.impeccable/review";
 mkdirSync(REVIEW_DIR, { recursive: true });
 
-const URL = process.env.URL || "http://127.0.0.1:4321/";
+const URL = process.env.URL || "http://127.0.0.1:4322/";
 
 const viewports = [
   { name: "desktop", width: 1440, height: 900, dpr: 2 },
