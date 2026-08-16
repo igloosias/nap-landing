@@ -141,6 +141,26 @@
         "value": "rgba(255, 255, 255, 1)",
         "createdAt": "2026-08-16T09:16:33.694Z",
         "reason": "Almoayyed gradient radial color. Intended."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#ffd20e",
+        "createdAt": "2026-08-16T11:44:43.947Z"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#ec8401",
+        "createdAt": "2026-08-16T11:44:44.031Z"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#e65c04",
+        "createdAt": "2026-08-16T11:44:44.119Z"
+      },
+      {
+        "rule": "gradient-text",
+        "value": "rainbow-title mobile fallback",
+        "createdAt": "2026-08-16T11:44:44.204Z"
       }
     ]
   }
