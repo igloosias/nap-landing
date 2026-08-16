@@ -231,6 +231,11 @@
         "rule": "design-system-font-size",
         "value": "96px",
         "createdAt": "2026-08-16T12:11:00.944Z"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "13px",
+        "createdAt": "2026-08-16T12:26:27.300Z"
       }
     ]
   }

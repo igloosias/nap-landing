@@ -1,0 +1,145 @@
+---
+import Layout from "../layouts/Layout.astro";
+import site from "../data/site.json";
+
+const { brand } = site;
+const lastUpdated = "2026-08-16";
+---
+
+<Layout title={`Booking Terms — ${brand.name}`} description="The booking fee, cancellation window, refund, and GST treatment for NAP.">
+  <main id="main">
+    <article class="legal">
+      <div class="container legal-inner">
+        <header class="legal-head">
+          <a href="/" class="legal-back mono">← {brand.name}</a>
+          <p class="mono legal-kicker">Legal</p>
+          <h1 class="display legal-title">Booking Terms<span class="dot">.</span></h1>
+          <p class="italic legal-deck">The boring but important bit. The booking fee exists so the chair stays yours. Everything else is plain English.</p>
+        </header>
+
+        <section class="legal-section">
+          <p class="mono legal-eyebrow">01 — Booking fee</p>
+          <p>A non-refundable S$20 deposit secures the slot. It is deducted from the final service cost on the day. If you don't show up, the fee is forfeited. If the appointment is rescheduled in time, the fee moves with you.</p>
+        </section>
+
+        <section class="legal-section">
+          <p class="mono legal-eyebrow">02 — Cancellation</p>
+          <p>More than 24 hours before the appointment: move it any time at no cost.</p>
+          <p>Less than 24 hours before, or no-show: the S$20 deposit is forfeited.</p>
+          <p>Late on either side through genuine emergency (medical, bereavement, flight cancellation): message us and we'll sort it case by case. We're a small studio, not a chain.</p>
+        </section>
+
+        <section class="legal-section">
+          <p class="mono legal-eyebrow">03 — Pricing</p>
+          <p>Prices are in Singapore dollars (SGD). Hand-painted nail art and some extension work is quoted per nail after we see the reference image.</p>
+          <p>GST: NAP Studio Pte. Ltd. is not currently GST-registered. Prices shown are the prices you pay. When registration happens, we'll update this page and add the 9% line.</p>
+        </section>
+
+        <section class="legal-section">
+          <p class="mono legal-eyebrow">04 — Refunds</p>
+          <p>If a service is performed but you're unhappy with the result, message us within 48 hours with a photo. We will repair, redo, or refund a fair portion — case by case. We do not refund the booking fee itself; that covers the chair time.</p>
+        </section>
+
+        <section class="legal-section">
+          <p class="mono legal-eyebrow">05 — Right to refuse</p>
+          <p>We reserve the right to refuse a booking. Common reasons: nail or lash condition that contraindicates the service, repeated no-shows, abusive communication. We won't ask awkward questions.</p>
+        </section>
+
+        <section class="legal-section">
+          <p class="mono legal-eyebrow">06 — Allergies & sensitivities</p>
+          <p>Tell us before we start. If you develop a reaction during the appointment, stop us. We carry the standard salon emergency kit; we are not a medical provider.</p>
+        </section>
+
+        <section class="legal-section">
+          <p class="mono legal-eyebrow">07 — Children</p>
+          <p>Anyone under 16 needs a parent or guardian with them. No nail or lash services for under 12s.</p>
+        </section>
+
+        <section class="legal-section">
+          <p class="mono legal-eyebrow">08 — Liability</p>
+          <p>NAP carries professional indemnity insurance for the services we offer. We are not liable for allergic reactions that were not disclosed, damage to clothing or personal items, or losses incurred by late or missed appointments.</p>
+        </section>
+
+        <section class="legal-section">
+          <p class="mono legal-eyebrow">09 — Governing law</p>
+          <p>These terms are governed by the laws of the Republic of Singapore. Disputes are subject to the jurisdiction of the Singapore courts.</p>
+        </section>
+
+        <section class="legal-section">
+          <p class="mono legal-eyebrow">10 — Contact</p>
+          <p>Anything above unclear, or a case we haven't covered: <a class="legal-link" href={`mailto:${brand.email}`}>{brand.email}</a> or WhatsApp the number on the <a class="legal-link" href="/#visit">Visit</a> page.</p>
+        </section>
+
+        <p class="mono legal-fine">Last updated · {lastUpdated}</p>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .legal {
+    background: var(--bone);
+    color: var(--ink);
+    padding: var(--space-8) 0 var(--space-9);
+  }
+  .legal-inner {
+    max-width: 760px;
+  }
+  .legal-head {
+    display: grid;
+    gap: var(--space-4);
+    padding-bottom: var(--space-7);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--space-7);
+  }
+  .legal-back {
+    color: var(--ink-50);
+    text-decoration: none;
+    width: fit-content;
+  }
+  .legal-back:hover, .legal-back:focus-visible { color: var(--ink); }
+  .legal-kicker { color: var(--ink-50); margin: 0; }
+  .legal-title {
+    font-size: clamp(48px, 9vw, 124px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin: 0;
+    text-transform: uppercase;
+  }
+  .legal-deck {
+    font-size: clamp(18px, 2vw, 22px);
+    line-height: 1.4;
+    max-width: 56ch;
+    color: var(--ink-70);
+    margin: var(--space-4) 0 0;
+  }
+  .legal-section {
+    padding: var(--space-6) 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .legal-section:last-of-type { border-bottom: 0; }
+  .legal-section p {
+    margin: 0 0 var(--space-4);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .legal-section p:last-child { margin-bottom: 0; }
+  .legal-eyebrow { color: var(--ink-50); margin: 0 0 var(--space-4) !important; }
+  .legal-link {
+    color: var(--ink);
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size var(--dur) var(--ease);
+    padding-bottom: 2px;
+  }
+  .legal-link:hover, .legal-link:focus-visible { background-size: 100% 1px; }
+  .legal-fine {
+    color: var(--ink-50);
+    margin: var(--space-7) 0 0;
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--hairline);
+  }
+</style>

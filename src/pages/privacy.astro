@@ -1,0 +1,155 @@
+---
+import Layout from "../layouts/Layout.astro";
+import site from "../data/site.json";
+
+const { brand } = site;
+const lastUpdated = "2026-08-16";
+---
+
+<Layout title={`Privacy — ${brand.name}`} description="How NAP handles your data. Short, honest, PDPA-aware.">
+  <main id="main">
+    <article class="legal">
+      <div class="container legal-inner">
+        <header class="legal-head">
+          <a href="/" class="legal-back mono">← {brand.name}</a>
+          <p class="mono legal-kicker">Legal</p>
+          <h1 class="display legal-title">Privacy<span class="dot">.</span></h1>
+          <p class="italic legal-deck">Short version: we don't collect anything from this site. WhatsApp, Instagram, and TikTok are off this site. If you message us, their rules apply.</p>
+        </header>
+
+        <section class="legal-section">
+          <p class="mono legal-eyebrow">01 — What this site collects</p>
+          <p>Nothing. There are no forms, no analytics, no cookies, no tracking pixels, no fingerprinting, no chat widget. Your visit is a single TCP request and the bytes we send back.</p>
+          <p>The server logs (IP, user-agent, timestamp) are the standard infrastructure logs of the host. We don't read them and we don't share them.</p>
+        </section>
+
+        <section class="legal-section">
+          <p class="mono legal-eyebrow">02 — External services you can use from this site</p>
+          <ul class="legal-list">
+            <li><strong>WhatsApp</strong> — clicking the green button opens a chat with us. Meta's privacy policy applies once you're there.</li>
+            <li><strong>Instagram</strong> — link to our profile. Meta's privacy policy applies.</li>
+            <li><strong>TikTok</strong> — link to our profile. ByteDance's privacy policy applies.</li>
+            <li><strong>Google Maps</strong> — link to the Bali Lane address. Google's privacy policy applies.</li>
+            <li><strong>Email</strong> — clicking the email link opens your mail client. We receive whatever you send.</li>
+          </ul>
+          <p>We have no scripts from these companies loaded on this site. Nothing runs in the background.</p>
+        </section>
+
+        <section class="legal-section">
+          <p class="mono legal-eyebrow">03 — What we do with messages you send us</p>
+          <p>If you DM or WhatsApp us to book, we keep your name, phone number, and the booking details for the length of our working relationship — usually until 12 months after your last visit, for rebooking and customer service. We don't sell, share, or rent your data. We don't add you to a marketing list.</p>
+          <p>You can ask us to delete everything we hold on you at any time. We'll do it within 30 days.</p>
+        </section>
+
+        <section class="legal-section">
+          <p class="mono legal-eyebrow">04 — Fonts</p>
+          <p>This site loads fonts from Google Fonts and Fontshare. Those companies will see your IP address. Both are appropriate-class sub-processors for a static site. If you'd rather not share an IP with a font CDN, the system fallback is a generic sans-serif.</p>
+        </section>
+
+        <section class="legal-section">
+          <p class="mono legal-eyebrow">05 — PDPA (Singapore)</p>
+          <p>NAP Studio Pte. Ltd. is a Singapore-incorporated entity. Our treatment of personal data follows the Personal Data Protection Act 2012. If you feel we've mishandled your data, you can lodge a complaint with the Personal Data Protection Commission.</p>
+        </section>
+
+        <section class="legal-section">
+          <p class="mono legal-eyebrow">06 — Contact</p>
+          <p>Questions, deletion requests, complaints: <a class="legal-link" href={`mailto:${brand.email}`}>{brand.email}</a>.</p>
+        </section>
+
+        <p class="mono legal-fine">Last updated · {lastUpdated}</p>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .legal {
+    background: var(--bone);
+    color: var(--ink);
+    padding: var(--space-8) 0 var(--space-9);
+  }
+  .legal-inner {
+    max-width: 760px;
+  }
+  .legal-head {
+    display: grid;
+    gap: var(--space-4);
+    padding-bottom: var(--space-7);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--space-7);
+  }
+  .legal-back {
+    color: var(--ink-50);
+    text-decoration: none;
+    width: fit-content;
+  }
+  .legal-back:hover, .legal-back:focus-visible { color: var(--ink); }
+  .legal-kicker { color: var(--ink-50); margin: 0; }
+  .legal-title {
+    font-size: clamp(48px, 9vw, 124px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin: 0;
+    text-transform: uppercase;
+  }
+  .legal-deck {
+    font-size: clamp(18px, 2vw, 22px);
+    line-height: 1.4;
+    max-width: 56ch;
+    color: var(--ink-70);
+    margin: var(--space-4) 0 0;
+  }
+  .legal-section {
+    padding: var(--space-6) 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .legal-section:last-of-type { border-bottom: 0; }
+  .legal-section p {
+    margin: 0 0 var(--space-4);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .legal-section p:last-child { margin-bottom: 0; }
+  .legal-eyebrow { color: var(--ink-50); margin: 0 0 var(--space-4) !important; }
+  .legal-list {
+    list-style: none;
+    margin: 0 0 var(--space-4);
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+  .legal-list li {
+    padding-left: var(--space-4);
+    position: relative;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .legal-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--ink-50);
+  }
+  .legal-list strong {
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .legal-link {
+    color: var(--ink);
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size var(--dur) var(--ease);
+    padding-bottom: 2px;
+  }
+  .legal-link:hover, .legal-link:focus-visible { background-size: 100% 1px; }
+  .legal-fine {
+    color: var(--ink-50);
+    margin: var(--space-7) 0 0;
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--hairline);
+  }
+</style>

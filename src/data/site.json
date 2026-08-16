@@ -6,23 +6,23 @@
     "tagline": "nail & lash · by appointment",
     "heroLabel": "Nails. Lashes. Booked.",
     "heroPrestige": "Nana Adriana's Prestige",
-    "whatsappNumber": "85385484841",
-    "whatsappDisplay": "+853 8548 4841",
+    "whatsappNumber": "6585484841",
+    "whatsappDisplay": "+65 8548 4841",
     "hoursWeekday": "Mon – Thu · 12:00 – 22:00",
     "hoursWeekend": "Fri – Sun · 12:00 – 23:00",
     "hoursClosed": "Closed between sets · by appointment",
     "instagramHandle": "@nap_lashes.nails.cafe",
     "tiktokHandle": "@nap_nails.lashess.cafe",
     "email": "hello@nap.studio",
-    "phone": "+853 8548 4841",
+    "phone": "+65 8548 4841",
     "bookingFee": "$20 booking fee · deducted from the service cost upon completion",
     "company": "NAP Studio Pte. Ltd.",
-    "footerTagline": "A single-chair studio for nails & lashes."
+    "footerTagline": ""
   },
 
   "primaryCta": {
     "label": "Book now",
-    "href": "https://wa.me/85385484841"
+    "href": "https://wa.me/6585484841"
   },
 
   "heroImage": {
@@ -190,14 +190,14 @@
     "titleLead": "Come",
     "titleAccent": "take a",
     "titleTrail": "Nap",
-    "lede": "17 Bali Lane, Level 02. Second door on the left, above the perfume shop. Buzz twice.",
+    "lede": "17 Bali Lane, Level 02. Above our cafe. Buzz twice.",
     "ctas": [
-      { "label": "Book on WhatsApp →", "href": "https://wa.me/85385484841", "primary": true },
+      { "label": "Book on WhatsApp →", "href": "https://wa.me/6585484841", "primary": true },
       { "label": "Open in Maps", "href": "https://maps.google.com/?q=17+Bali+Lane+Singapore", "primary": false }
     ],
     "details": [
       { "label": "Hours", "value": ["Mon – Thu · 12:00 – 22:00", "Fri – Sun · 12:00 – 23:00", "Closed between sets · by appointment"] },
-      { "label": "Contact", "value": ["+853 8548 4841", "hello@nap.studio"] },
+      { "label": "Contact", "value": ["+65 8548 4841", "hello@nap.studio"] },
       { "label": "Nearest MRT", "value": ["Bugis · 7 min walk", "Esplanade · 9 min walk"] },
       { "label": "Payment", "value": ["PayNow · Cashless", "Cards accepted"] }
     ]
