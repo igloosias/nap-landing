@@ -86,8 +86,8 @@
         "n": "03",
         "tag": "Arrive",
         "title": "Come upstairs.",
-        "body": "Second door on the left above the perfume shop. Shoes off, phone on silent if you like, and a cup of something warm before we start.",
-        "sample": { "who": "Location", "text": "17 Bali Lane, Level 02. Buzz twice." }
+        "body": "Above the cafe. Shoes off, phone on silent if you like, and a cup of something warm before we start.",
+        "sample": { "who": "Location", "text": "16 Bali Lane, #02-01. Buzz twice." }
       }
     ],
     "footnote": "Prefer not to chat? We also take bookings by voice note."
@@ -190,10 +190,10 @@
     "titleLead": "Come",
     "titleAccent": "take a",
     "titleTrail": "Nap",
-    "lede": "17 Bali Lane, Level 02. Above our cafe. Buzz twice.",
+    "lede": "16 Bali Lane, #02-01. Above our cafe. Buzz twice.",
     "ctas": [
       { "label": "Book on WhatsApp →", "href": "https://wa.me/6585484841", "primary": true },
-      { "label": "Open in Maps", "href": "https://maps.google.com/?q=17+Bali+Lane+Singapore", "primary": false }
+      { "label": "Open in Maps", "href": "https://maps.google.com/?q=16+Bali+Lane+Singapore", "primary": false }
     ],
     "details": [
       { "label": "Hours", "value": ["Mon – Thu · 12:00 – 22:00", "Fri – Sun · 12:00 – 23:00", "Closed between sets · by appointment"] },
