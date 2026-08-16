@@ -194,19 +194,30 @@ a {
   border-top: 1px solid var(--hairline-bone);
   border-bottom: 1px solid var(--hairline-bone);
   padding: var(--space-3) 0;
+  overflow: hidden;
 }
-.section-divider-inner {
-  text-align: center;
+.section-divider-track {
+  display: flex;
+  width: max-content;
+  animation: section-divider-scroll 32s linear infinite;
 }
 .section-divider-line {
-  margin: 0;
+  flex: 0 0 auto;
+  padding: 0 32px;
   font-family: var(--font-display);
   font-weight: 500;
   font-size: 11px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   color: var(--bone);
-  max-width: 56ch;
-  margin-inline: auto;
+  white-space: nowrap;
+}
+@keyframes section-divider-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .section-divider-track { animation: none; transform: none; }
 }
 
 /* Checkered divider — between nails and lashes sections. CSS-only pattern. */
