@@ -228,7 +228,7 @@ The form language is sharp. Surface elements — skip link, hairlines, FAQ rows,
 
 ### Service Half (`.services-half`)
 - **Layout:** `1fr 1fr` desktop (image + text side by side); single column mobile. Image variant `.services-half--img-right` swaps the columns.
-- **Background:** section is `position: relative; overflow: hidden; isolation: isolate;` with an `.services-half-bg` layer behind the content (z-index: -1). The bg carries the Almoayyed gradient (21st.dev recipe, original palette: warm gray `#D7D5D5` base, plum `#310527` + `#39051F` radial washes, white radial lift, grain overlay pass at 0.28 alpha in `overlay` blend).
+- **Background:** nails + lashes sections are wrapped in `.services-wrap` (single shared canvas: `position: relative; overflow: hidden; isolation: isolate;`) with one `.services-half-bg` layer behind both sections (z-index: -1). The bg carries the Almoayyed gradient (21st.dev recipe, original palette: warm gray `#D7D5D5` base, plum `#310527` + `#39051F` radial washes, white radial lift, grain overlay pass at 0.28 alpha in `overlay` blend). The wash is continuous across the seam — sections themselves are transparent and add only padding.
 - **Image:** `16 / 9` aspect, `object-fit: cover`, ink figure well behind, `var(--radius-image)` (16px) corners, `box-shadow: 0 24px 60px -32px rgba(10, 10, 10, 0.35)` for soft lift off the gradient.
 - **Service list:** hairline-separated rows. Service name left (General Sans 700, 16–19px), price right (Signal Pink, 15–17px). Hover background `rgba(233, 75, 140, 0.06)`.
 - **Sub-list:** extensions (nails) or refills (lashes) carry their own kicker and bordered card.

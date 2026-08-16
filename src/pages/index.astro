@@ -77,8 +77,9 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     <!-- ============================================================== -->
     <!-- SERVICES — two dedicated sections (nails first, lashes second) -->
     <!-- ============================================================== -->
-    <section id="nails" class="section services-half services-half--img-left" aria-labelledby="nails-title">
+    <div class="services-wrap">
       <div class="services-half-bg" aria-hidden="true"></div>
+    <section id="nails" class="section services-half services-half--img-left" aria-labelledby="nails-title">
       <div class="services-half-grid">
         <figure class="services-half-figure">
           <img
@@ -135,7 +136,6 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     </section>
 
     <section id="lashes" class="section services-half services-half--img-right" aria-labelledby="lashes-title">
-      <div class="services-half-bg" aria-hidden="true"></div>
       <div class="services-half-grid">
         <div class="services-half-text">
           <p class="mono services-half-kicker">The menu</p>
@@ -196,6 +196,7 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
         <li class="mono services-note-line">— {n}</li>
       ))}
     </ul>
+    </div>
 
     <!-- ============================================================== -->
     <!-- HOW IT WORKS — sample chats                                   -->
@@ -652,17 +653,15 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
   /* SERVICES                                                       */
   /* ============================================================== */
 
-  /* services-half — nails/lashes split sections, 50/50 horizontal */
-  .services-half {
-    background: var(--bone);
-    padding-top: var(--space-9);
-    padding-bottom: var(--space-9);
+  /* services-wrap — single shared canvas for nails + lashes sections */
+  .services-wrap {
     position: relative;
     overflow: hidden;
     isolation: isolate;
   }
-  /* Adapted Almoayyed gradient — original palette (warm gray base + plum
-     radials + white lift + grain pass). 1:1 from the 21st.dev recipe. */
+  /* Almoayyed gradient — original palette (warm gray base + plum radials
+     + white lift + grain pass). 1:1 from the 21st.dev recipe. Spans both
+     nails and lashes sections so the wash is continuous. */
   .services-half-bg {
     position: absolute;
     inset: 0;
@@ -677,6 +676,12 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
       radial-gradient(circle at 80.23% 87.54%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.844) 10.28%, rgba(255, 255, 255, 0.5) 20.55%, rgba(255, 255, 255, 0.156) 30.83%, rgba(255, 255, 255, 0) 41.1%);
     background-size: 120px 120px, auto, auto, auto, auto;
     background-blend-mode: overlay, normal, normal, normal, normal;
+  }
+  /* services-half — nails/lashes split sections, 50/50 horizontal.
+     Shared canvas from .services-wrap (no own background). */
+  .services-half {
+    padding-top: var(--space-9);
+    padding-bottom: var(--space-9);
   }
   .services-half-grid {
     display: grid;
