@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import site from "../data/site.json";
-import { LogoMarquee } from "../components/LogoMarquee";
 
 const {
   brand, primaryCta, heroImage, logo, serviceImages, nav,
@@ -76,11 +75,13 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     </section>
 
     <!-- ============================================================== -->
-    <!-- BRAND MARQUEE — divider between hero and services              -->
+    <!-- DIVIDER — static ink band between hero and services           -->
     <!-- ============================================================== -->
-    <section class="brand-marquee" aria-label="Brands we use">
-      <div class="brand-marquee-eyebrow mono">Trusted brands</div>
-      <LogoMarquee logos={brands} client:load />
+    <section class="section-divider" aria-label="Studio intro">
+      <div class="container section-divider-inner">
+        <p class="mono section-divider-eyebrow">The studio</p>
+        <p class="section-divider-line">One chair. One artist. One appointment at a time.</p>
+      </div>
     </section>
 
     <!-- ============================================================== -->
@@ -143,6 +144,8 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
         </div>
       </div>
     </section>
+
+    <div class="checkered-divider" aria-hidden="true"></div>
 
     <section id="lashes" class="section services-half services-half--img-right" aria-labelledby="lashes-title">
       <div class="services-half-grid">
@@ -214,7 +217,7 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
         <div class="section-head-row">
           <div>
             <p class="mono kicker">Chapter 03</p>
-            <h2 id="how-title" class="display section-h2">How it works<span class="dot">·</span></h2>
+            <h2 id="how-title" class="display section-h2">Get Booked<span class="dot">.</span></h2>
           </div>
           <p class="italic section-lede">{how.lede}</p>
         </div>
