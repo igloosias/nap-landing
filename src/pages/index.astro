@@ -1212,6 +1212,7 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
   .faq-item {
     padding: var(--space-5) 0;
     transition: background var(--dur-fast) var(--ease);
+    interpolate-size: allow-keywords;
   }
   .faq-item[open] { background: rgba(245, 241, 234, 0.04); }
 
@@ -1236,7 +1237,16 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     padding: var(--space-3) var(--space-5);
     border-radius: var(--radius-image);
     max-width: 80%;
-    transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+    box-shadow:
+      0 1px 0 rgba(245, 241, 234, 0.08) inset,
+      0 12px 28px -18px rgba(10, 10, 10, 0.5);
+    transition: background var(--dur-fast) var(--ease),
+                border-color var(--dur-fast) var(--ease),
+                transform var(--dur-fast) var(--ease);
+  }
+  .faq-summary:hover .faq-q-bubble {
+    background: rgba(245, 241, 234, 0.18);
+    transform: translateY(-1px);
   }
   .faq-item[open] .faq-q-bubble {
     background: rgba(245, 241, 234, 0.16);
@@ -1269,14 +1279,19 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     transform: rotate(90deg);
     opacity: 0;
   }
+  /* Answer slide-reveal: collapse to height:0 when closed, ease
+     open/close via interpolate-size. Modern browsers only. */
   .faq-a-wrap {
     display: flex;
     justify-content: flex-end;
-    padding: var(--space-4) 0 var(--space-2);
+    height: 0;
     overflow: hidden;
+    transition: height var(--dur-slow) var(--ease);
   }
+  .faq-item[open] .faq-a-wrap { height: auto; }
   .faq-a {
-    margin: 0;
+    position: relative;
+    margin: var(--space-3) 0 var(--space-2);
     background: var(--signal);
     color: var(--ink);
     padding: var(--space-4) var(--space-5);
@@ -1285,7 +1300,21 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     font-family: var(--font-display);
     font-size: clamp(15px, 1.4vw, 17px);
     line-height: 1.5;
-    box-shadow: 0 18px 40px -22px rgba(10, 10, 10, 0.5);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.3) inset,
+      0 18px 40px -22px rgba(10, 10, 10, 0.5),
+      0 4px 12px -6px rgba(10, 10, 10, 0.4);
+  }
+  .faq-a::before {
+    content: "";
+    position: absolute;
+    top: var(--space-3);
+    right: 100%;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-left: 0;
+    border-right-color: var(--signal);
   }
   /* (legacy chev rules superseded by .faq-icon) */
 
