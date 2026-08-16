@@ -205,7 +205,7 @@ This system is flat by design. Surfaces carry no drop shadows except for the pri
 
 ## Shapes
 
-The form language is sharp. Surface elements — skip link, hairlines, FAQ rows, service rows, visit detail rows — use sharp corners or hairlines. CTAs use the pill (`999px`) because they earn the only soft mark on the page. Service section image figures use 4px corners and `4 / 5` aspect ratio. Hero image bleeds to the edges.
+The form language is sharp. Surface elements — skip link, hairlines, FAQ rows, service rows, visit detail rows — use sharp corners or hairlines. CTAs use the pill (`999px`) because they earn the only soft mark on the page. Service section image figures use `--radius-image` (`16px`) corners with a soft shadow, and `16 / 9` aspect ratio (matches landscape client assets). Hero image bleeds to the edges.
 
 ## Components
 
@@ -228,7 +228,8 @@ The form language is sharp. Surface elements — skip link, hairlines, FAQ rows,
 
 ### Service Half (`.services-half`)
 - **Layout:** `1fr 1fr` desktop (image + text side by side); single column mobile. Image variant `.services-half--img-right` swaps the columns.
-- **Image:** `4 / 5` aspect, `object-fit: cover`, ink figure well behind, 4px radius.
+- **Background:** section is `position: relative; overflow: hidden; isolation: isolate;` with an `.services-half-bg` layer behind the content (z-index: -1). The bg carries an adapted Almoayyed gradient — bone base, two ink radial washes for depth, one white radial for a low-alpha lift, plus the grain overlay pass (0.28 alpha, `mix-blend-mode: overlay`) for editorial texture. Recolor note: original recipe ran on warm gray + plum; recolored to ink/bone so it sits in the two-canvas system without breaking it.
+- **Image:** `16 / 9` aspect, `object-fit: cover`, ink figure well behind, `var(--radius-image)` (16px) corners, `box-shadow: 0 24px 60px -32px rgba(10, 10, 10, 0.35)` for soft lift off the gradient.
 - **Service list:** hairline-separated rows. Service name left (General Sans 700, 16–19px), price right (Signal Pink, 15–17px). Hover background `rgba(233, 75, 140, 0.06)`.
 - **Sub-list:** extensions (nails) or refills (lashes) carry their own kicker and bordered card.
 
