@@ -219,7 +219,7 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     <!-- ============================================================== -->
     <!-- CHECKERED DIVIDER — between lashes area and 'Get Booked.'    -->
     <!-- ============================================================== -->
-    <div class="checkered-divider checkered-divider--pink" aria-hidden="true"></div>
+    <div class="checkered-divider" aria-hidden="true"></div>
 
     <!-- ============================================================== -->
     <!-- HOW IT WORKS — sample chats                                   -->
@@ -874,21 +874,11 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     max-width: 38ch;
     color: var(--ink-70);
   }
-  /* Checkered divider (pink + purple) — sits between lashes area and
-     'Get Booked.' Same architecture as the B/W variant: 28px tile,
-     diagonal gradient stack, bone base. */
-  .checkered-divider--pink {
-    height: 28px;
-    width: 100%;
+  /* Checkered divider — between lashes area and 'Get Booked.'
+     Same B/W variant used between nails and lashes (defined in global.css).
+     Local override just adds vertical breathing room. */
+  .checkered-divider {
     margin: var(--space-5) 0;
-    background-image:
-      linear-gradient(45deg, #E94B8C 25%, transparent 25%),
-      linear-gradient(-45deg, #E94B8C 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, #7C4DFF 75%),
-      linear-gradient(-45deg, transparent 75%, #7C4DFF 75%);
-    background-size: 28px 28px;
-    background-position: 0 0, 0 14px, 14px -14px, -14px 0;
-    background-color: var(--bone);
   }
 
   .service-list {
