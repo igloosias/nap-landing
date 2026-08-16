@@ -46,8 +46,8 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
 
           <nav class="nav-links" data-slide-tabs aria-label="Primary">
             <span class="nav-cursor" aria-hidden="true"></span>
-            {navLinks.map((l) => (
-              <a href={l.href} class="nav-link" data-nav-link data-active={l.href === "#services"}>{l.label}</a>
+            {navLinks.map((l, i) => (
+              <a href={l.href} class="nav-link" data-nav-link data-active={i === 0 ? "true" : "false"}>{l.label}</a>
             ))}
           </nav>
         </header>
@@ -61,8 +61,11 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
           <p class="hero-prestige"><span class="script">{brand.heroPrestige}</span></p>
 
           <div class="hero-cta">
-            <a href={waGeneral} class="cta-pink cta-pill" target="_blank" rel="noopener">
+            <a href={waGeneral} class="cta-pink cta-pill" target="_blank" rel="noopener" aria-label="Book now on WhatsApp">
               <span>Book now</span>
+              <svg class="cta-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/>
+              </svg>
             </a>
             <p class="mono hero-meta-line">{brand.hoursWeekday} · {brand.hoursWeekend}</p>
             <p class="mono hero-fee-line">{brand.bookingFee}</p>
@@ -94,7 +97,9 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
           <details class="services-dropdown" open>
             <summary class="services-dropdown-summary">
               <span class="mono services-dropdown-eyebrow">Tap to view {services[0].items.length} services</span>
-              <span class="services-dropdown-icon" aria-hidden="true">+</span>
+              <svg class="services-dropdown-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M8 3v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+              </svg>
             </summary>
             <div class="services-dropdown-body">
               <ul class="service-list" role="list">
@@ -137,7 +142,9 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
           <details class="services-dropdown" open>
             <summary class="services-dropdown-summary">
               <span class="mono services-dropdown-eyebrow">Tap to view {services[1].items.length} services</span>
-              <span class="services-dropdown-icon" aria-hidden="true">+</span>
+              <svg class="services-dropdown-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M8 3v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+              </svg>
             </summary>
             <div class="services-dropdown-body">
               <ul class="service-list" role="list">
@@ -220,7 +227,12 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
 
         <div class="how-foot">
           <p class="italic how-foot-text">{how.footnote}</p>
-          <a href={waGeneral} class="cta-pink cta-pill" target="_blank" rel="noopener">Open WhatsApp →</a>
+          <a href={waGeneral} class="cta-pink cta-pill" target="_blank" rel="noopener">
+            Open WhatsApp
+            <svg class="cta-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/>
+            </svg>
+          </a>
         </div>
       </div>
     </section>
@@ -259,7 +271,12 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
           <p class="mono kicker">Chapter 05</p>
           <h2 id="faq-title" class="display section-h2">Questions<span class="dot">·</span></h2>
           <p class="italic faq-side-lede">The things people ask us on WhatsApp, collected. If yours isn't here, just send it — we answer fast.</p>
-          <a href={waGeneral} class="cta-pink cta-pill faq-side-cta" target="_blank" rel="noopener">Ask us directly →</a>
+          <a href={waGeneral} class="cta-pink cta-pill faq-side-cta" target="_blank" rel="noopener">
+            Ask us directly
+            <svg class="cta-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/>
+            </svg>
+          </a>
         </div>
 
         <div class="faq-list-wrap" data-faq-list>
@@ -270,7 +287,9 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
                   <p class="mono faq-meta">{f.n} — {f.tag}</p>
                   <h3 class="display faq-q">{f.q}</h3>
                 </div>
-                <span class="faq-chev display" aria-hidden="true">+</span>
+                <svg class="faq-chev" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                  <path d="M5 14h18M14 5v18" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+                </svg>
               </summary>
               <div class="faq-a-wrap">
                 <p class="italic faq-a">{f.a}</p>
@@ -295,7 +314,12 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
 
           <div class="visit-ctas">
             {visit.ctas.map((c) => (
-              <a href={c.href} class={c.primary ? "cta-pink cta-pill" : "cta-ghost cta-pill"} target="_blank" rel="noopener">{c.label}</a>
+              <a href={c.href} class={c.primary ? "cta-pink cta-pill" : "cta-ghost cta-pill"} target="_blank" rel="noopener">
+                <span>{c.label}</span>
+                <svg class="cta-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/>
+                </svg>
+              </a>
             ))}
           </div>
         </div>
@@ -341,7 +365,12 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     <!-- STICKY MOBILE CTA                                              -->
     <!-- ============================================================== -->
     <div class="sticky-cta" data-sticky-cta aria-hidden="true">
-      <a href={waGeneral} class="cta-pink cta-pill" target="_blank" rel="noopener">Book on WhatsApp →</a>
+      <a href={waGeneral} class="cta-pink cta-pill" target="_blank" rel="noopener">
+        Book on WhatsApp
+        <svg class="cta-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M3 10h13M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/>
+        </svg>
+      </a>
     </div>
   </main>
 </Layout>
@@ -363,25 +392,6 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
   }
 
   .kicker { color: var(--ink-50); }
-
-  /* Marquee mask — fade edges */
-  .marquee-mask {
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  }
-
-  /* Grain overlay (hero only) */
-  .grain { position: relative; isolation: isolate; }
-  .grain::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.06;
-    mix-blend-mode: multiply;
-    z-index: 0;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  }
 
   /* Blink dot */
   .blink-dot {
@@ -426,20 +436,6 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     text-transform: uppercase;
     text-decoration: none;
   }
-
-  /* Underline-on-hover nav link */
-  .link-u {
-    background-image: linear-gradient(currentColor, currentColor);
-    background-size: 0% 1px;
-    background-repeat: no-repeat;
-    background-position: 0 100%;
-    transition: background-size var(--dur) var(--ease);
-    padding-bottom: 2px;
-  }
-  .link-u:hover, .link-u:focus-visible { background-size: 100% 1px; }
-
-  /* ============================================================== */
-  /* (ticker-bar block removed in round 7)                          */
 
   /* ============================================================== */
   /* NAV (slide-tabs, layered on hero)                              */
@@ -650,35 +646,9 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     text-transform: uppercase;
   }
 
-  /* MARQUEE STRIP removed in round 7                              */
-
   /* ============================================================== */
   /* SERVICES                                                       */
   /* ============================================================== */
-  .services {
-    padding-top: var(--space-10);
-    padding-bottom: var(--space-10);
-    position: relative;
-    background-color: #D7D5D5;
-    background-image:
-      radial-gradient(circle at 66.94% 46.43%, rgba(215, 213, 213, 1) 0%, rgba(215, 213, 213, 0.844) 19.02%, rgba(215, 213, 213, 0.5) 38.05%, rgba(215, 213, 213, 0.156) 57.07%, rgba(215, 213, 213, 0) 76.1%),
-      radial-gradient(circle at 34.69% 66.31%, rgba(49, 5, 39, 1) 0%, rgba(49, 5, 39, 0.844) 12.73%, rgba(49, 5, 39, 0.5) 25.45%, rgba(49, 5, 39, 0.156) 38.18%, rgba(49, 5, 39, 0) 50.9%),
-      radial-gradient(circle at 48.93% 19.32%, rgba(57, 5, 31, 1) 0%, rgba(57, 5, 31, 0.844) 16.75%, rgba(57, 5, 31, 0.5) 33.5%, rgba(57, 5, 31, 0.156) 50.25%, rgba(57, 5, 31, 0) 67%),
-      radial-gradient(circle at 80.23% 87.54%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.844) 10.28%, rgba(255, 255, 255, 0.5) 20.55%, rgba(255, 255, 255, 0.156) 30.83%, rgba(255, 255, 255, 0) 41.1%);
-  }
-  .services::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.280'/></svg>");
-    background-size: 120px 120px;
-    background-repeat: repeat;
-    mix-blend-mode: overlay;
-    opacity: 0.5;
-    pointer-events: none;
-    z-index: 0;
-  }
-  .services > .container { position: relative; z-index: 1; }
 
   /* services-half — nails/lashes split sections, 50/50 horizontal */
   .services-half {
@@ -755,140 +725,12 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     line-height: 1.02;
     margin: var(--space-3) 0 0;
   }
-  .services .section-h2 { color: var(--bone); }
   .section-lede {
     font-size: clamp(18px, 2vw, 24px);
     line-height: 1.4;
     max-width: 38ch;
     color: var(--ink-70);
   }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-9);
-  }
-  @media (min-width: 1024px) {
-    /* Narrower columns + wider middle gutter. Pictures stay full-width
-       inside their column but the columns themselves are narrower, so
-       the pictures no longer dominate. */
-    .services-grid {
-      grid-template-columns: 32% 36% 32%;
-      gap: 0;
-    }
-    .services-col--lashes {
-      border-left: 1px solid var(--hairline);
-      padding-left: var(--space-6);
-    }
-  }
-
-  .services-col-head {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    padding-bottom: var(--space-4);
-    border-bottom: 1px solid var(--ink);
-    margin-bottom: var(--space-5);
-  }
-  .services-col-title {
-    display: inline-flex;
-    align-items: baseline;
-    gap: var(--space-3);
-  }
-  .services-col-name {
-    font-size: clamp(28px, 3.5vw, 40px);
-    letter-spacing: -0.02em;
-    color: var(--bone);
-  }
-  .services-col-count {
-    color: var(--ink-50);
-  }
-  .services-col-room {
-    color: var(--signal);
-  }
-
-  .services-col-figure-btn {
-    display: block;
-    width: 100%;
-    max-width: 420px;
-    margin: 0 auto var(--space-5);
-    padding: 0;
-    border: 0;
-    background: none;
-    cursor: pointer;
-    text-align: left;
-    color: inherit;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .services-col-figure-btn:focus-visible {
-    outline: 2px solid var(--signal);
-    outline-offset: 4px;
-  }
-
-  .services-col-figure {
-    position: relative;
-    margin: 0;
-    background: var(--ink);
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    border: 3px solid var(--ink);
-    border-radius: 14px;
-  }
-  .services-col-figure img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-  }
-
-  .services-col-figure-cta {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: var(--space-3) var(--space-4);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-3);
-    background: linear-gradient(to top, rgba(10, 10, 10, 0.78), rgba(10, 10, 10, 0));
-    color: var(--bone);
-    pointer-events: none;
-  }
-  .services-col-figure-cta-text {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-  }
-  .services-col-figure-cta-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border: 1px solid var(--bone);
-    border-radius: 999px;
-    font-family: var(--font-display);
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 1;
-    transition: transform var(--dur) var(--ease);
-  }
-  .services-col-figure-btn.is-open .services-col-figure-cta-icon {
-    transform: rotate(45deg);
-  }
-
-  .services-col-body {
-    overflow: hidden;
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    .services-col-body {
-      transition: opacity var(--dur) var(--ease);
-    }
-  }
-  .services-col-body[hidden] { display: none; }
 
   .service-list {
     list-style: none;
@@ -1137,12 +979,25 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     letter-spacing: -0.02em;
   }
   .faq-chev {
-    font-size: 32px;
     color: var(--signal);
     transition: transform var(--dur) var(--ease);
     flex: 0 0 auto;
   }
   .faq-item[open] .faq-chev { transform: rotate(45deg); }
+
+  .services-dropdown-icon {
+    color: var(--ink);
+    transition: transform var(--dur) var(--ease);
+    flex: 0 0 auto;
+  }
+  .services-dropdown[open] .services-dropdown-icon { transform: rotate(45deg); }
+
+  .cta-arrow {
+    flex: 0 0 auto;
+    transition: transform var(--dur) var(--ease);
+  }
+  .cta-pill:hover .cta-arrow,
+  .cta-pill:focus-visible .cta-arrow { transform: translateX(4px); }
 
   .faq-a-wrap {
     padding: 0 0 var(--space-6);
@@ -1228,11 +1083,6 @@ const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
     flex-wrap: wrap;
     padding-bottom: var(--space-6);
     border-bottom: 1px solid rgba(245, 241, 234, 0.10);
-  }
-  .footer-mark {
-    font-size: clamp(40px, 5vw, 56px);
-    letter-spacing: -0.04em;
-    line-height: 1;
   }
   .footer-tag {
     font-size: 18px;

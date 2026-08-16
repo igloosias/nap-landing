@@ -6,8 +6,8 @@
  * Also toggles `.is-scrolled` on <body> after 80px for nav backdrop blur.
  *
  * Drives parallax: any element with [data-parallax] inside the hero translates
- * at 0.4× scroll speed, clamped within the hero bounds. Disabled when
- * prefers-reduced-motion: reduce.
+ * at 0.4× scroll speed, clamped to the visible portion of the hero.
+ * Disabled when prefers-reduced-motion: reduce.
  */
 
 const bar = document.querySelector("[data-sticky-cta]");
@@ -22,19 +22,27 @@ const onScroll = () => {
   requestAnimationFrame(() => {
     const y = window.scrollY;
 
-    if (bar) bar.classList.toggle("is-visible", y > 400);
+    if (bar) {
+      const visible = y > 400;
+      bar.classList.toggle("is-visible", visible);
+      bar.setAttribute("aria-hidden", visible ? "false" : "true");
+    }
     document.body.classList.toggle("is-scrolled", y > 80);
 
     if (!reduced && parallaxEls.length) {
       for (const el of parallaxEls) {
         const rect = el.getBoundingClientRect();
-        const heroTop = rect.top + y;
-        const heroHeight = rect.height;
-        const offset = Math.max(0, Math.min(y * 0.4, heroHeight * 0.15));
-        if (y < heroTop) {
+        const elTop = rect.top + y;
+        const elBottom = elTop + rect.height;
+        // Translate up while the element is visible; clamp to 15% of its height.
+        if (y < elTop) {
           el.style.setProperty("--parallax-y", "0px");
+        } else if (y > elBottom) {
+          el.style.setProperty("--parallax-y", `${-rect.height * 0.15}px`);
         } else {
-          el.style.setProperty("--parallax-y", `${-offset}px`);
+          const progress = (y - elTop) / rect.height; // 0..1 while in view
+          const maxOffset = rect.height * 0.15;
+          el.style.setProperty("--parallax-y", `${-progress * maxOffset}px`);
         }
       }
     }

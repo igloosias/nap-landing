@@ -15,7 +15,9 @@
     "tiktokHandle": "@nap_nails.lashess.cafe",
     "email": "hello@nap.studio",
     "phone": "+853 8548 4841",
-    "bookingFee": "$20 booking fee · deducted from the service cost upon completion"
+    "bookingFee": "$20 booking fee · deducted from the service cost upon completion",
+    "company": "NAP Studio Pte. Ltd.",
+    "footerTagline": "A single-chair studio for nails & lashes."
   },
 
   "primaryCta": {
