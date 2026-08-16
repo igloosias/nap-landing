@@ -191,6 +191,16 @@
         "rule": "gradient-text",
         "value": "l883 rainbow-title background-clip text mobile fallback",
         "createdAt": "2026-08-16T11:54:23.713Z"
+      },
+      {
+        "rule": "gradient-text",
+        "value": "l866 rainbow-title background-clip text mobile fallback",
+        "createdAt": "2026-08-16T11:55:52.124Z"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#7c4dff",
+        "createdAt": "2026-08-16T11:55:52.210Z"
       }
     ]
   }
