@@ -1,0 +1,196 @@
+{
+  "_comment": "NAP — site content. Single nail/lash studio. Image files in public/assets/. See public/assets/README.md for asset map.",
+
+  "brand": {
+    "name": "NAP",
+    "tagline": "nail & lash · by appointment",
+    "heroLabel": "Nails. Lashes. Booked.",
+    "heroPrestige": "Nana Adriana's Prestige",
+    "whatsappNumber": "85385484841",
+    "whatsappDisplay": "+853 8548 4841",
+    "hoursWeekday": "Mon – Thu · 12:00 – 22:00",
+    "hoursWeekend": "Fri – Sun · 12:00 – 23:00",
+    "hoursClosed": "Closed between sets · by appointment",
+    "instagramHandle": "@nap_lashes.nails.cafe",
+    "tiktokHandle": "@nap_nails.lashess.cafe",
+    "email": "hello@nap.studio",
+    "phone": "+853 8548 4841",
+    "bookingFee": "$20 booking fee · deducted from the service cost upon completion"
+  },
+
+  "primaryCta": {
+    "label": "Book now",
+    "href": "https://wa.me/85385484841"
+  },
+
+  "heroImage": {
+    "src": "/assets/hero-product.webp",
+    "alt": "A manicured hand, fingers relaxed, soft directional light on a near-black surface"
+  },
+
+  "logo": {
+    "src": "/assets/new logo.svg",
+    "alt": "NAP — Nails · Lashes · Cafe. By Nana Adriana's Prestige."
+  },
+
+  "serviceImages": {
+    "nails": "/assets/nail-section.webp",
+    "lashes": "/assets/lash-section.webp",
+    "alt": {
+      "nails": "Nail studio section — manicure work in progress at the table.",
+      "lashes": "Lash studio section — lash application at the chair."
+    }
+  },
+
+  "nav": [
+    { "href": "#nails", "label": "Menu" },
+    { "href": "#how", "label": "How" },
+    { "href": "#faq", "label": "FAQ" },
+    { "href": "#visit", "label": "Visit" }
+  ],
+
+  "how": {
+    "title": "How it works",
+    "lede": "Three steps. No apps, no accounts, no automated reminders. Just a real human on WhatsApp.",
+    "steps": [
+      {
+        "n": "01",
+        "tag": "Message",
+        "title": "Send us a hi.",
+        "body": "Tap the pink button. Tell us what you want, roughly when, and whether you've been here before. We reply within a few hours — usually sooner.",
+        "sample": { "who": "You", "text": "hi! looking for a classic lash set next Friday pm?" }
+      },
+      {
+        "n": "02",
+        "tag": "Confirm",
+        "title": "Lock the slot.",
+        "body": "We send two or three options. You pick one, pay a $20 deposit, and we send you a calendar invite + a short prep note.",
+        "sample": { "who": "NAP", "text": "Friday 3pm or Saturday 11am? Deposit via PayNow to @nap.studio." }
+      },
+      {
+        "n": "03",
+        "tag": "Arrive",
+        "title": "Come upstairs.",
+        "body": "Second door on the left above the perfume shop. Shoes off, phone on silent if you like, and a cup of something warm before we start.",
+        "sample": { "who": "Location", "text": "17 Bali Lane, Level 02. Buzz twice." }
+      }
+    ],
+    "footnote": "Prefer not to chat? We also take bookings by voice note."
+  },
+
+  "stats": [
+    { "label": "Since", "value": "2021", "note": "Bali Lane, unchanged." },
+    { "label": "Sets applied", "value": "4,812", "note": "and counting, quietly." },
+    { "label": "Average return", "value": "18d", "note": "between refills." },
+    { "label": "Chairs", "value": "01", "note": "on purpose." }
+  ],
+
+  "services": [
+    {
+      "category": "nails",
+      "eyebrow": "Manicure & Pedicure",
+      "tag": "Nails",
+      "image": "/assets/nail-section.webp",
+      "items": [
+        { "name": "Classic Manicure", "price": "$25" },
+        { "name": "Express Manicure", "price": "$18" },
+        { "name": "Express Gel Manicure", "price": "$28" },
+        { "name": "Gel Manicure", "price": "$45" },
+        { "name": "Classic Pedicure", "price": "$35" },
+        { "name": "Express Pedicure", "price": "$28" },
+        { "name": "Express Gel Pedicure", "price": "$38" },
+        { "name": "Gel Pedicure", "price": "$55" },
+        { "name": "Classic Mani + Pedi", "price": "$55" },
+        { "name": "Gel Mani + Gel Pedi", "price": "$95" },
+        { "name": "Gel Removal (with New Set)", "price": "FREE" },
+        { "name": "Gel Removal Only", "price": "$15" },
+        { "name": "Callus Removal Treatment", "price": "$20" },
+        { "name": "Paraffin Wax Treatment", "price": "$15" }
+      ],
+      "extensions": [
+        { "name": "Classic Gel Extensions", "price": "from $80" },
+        { "name": "Acrylic Extensions", "price": "from $90" },
+        { "name": "Overlay", "price": "from $60" },
+        { "name": "Nail Refill", "price": "from $55" },
+        { "name": "Nail Repair", "price": "from $8 per nail" },
+        { "name": "French Tips", "price": "+$15" },
+        { "name": "Chrome / Cat Eye", "price": "+$15" },
+        { "name": "Nail Art", "price": "from $5 per nail" }
+      ]
+    },
+    {
+      "category": "lashes",
+      "eyebrow": "Lash Services",
+      "tag": "Lashes",
+      "image": "/assets/lash-section.webp",
+      "items": [
+        { "name": "Lash Lift", "price": "$58" },
+        { "name": "Lash Lift + Tint", "price": "$68" },
+        { "name": "Classic Lash Set", "price": "$68" },
+        { "name": "Hybrid Lash Set", "price": "$88" },
+        { "name": "Volume Lash Set", "price": "$108" },
+        { "name": "Wispy Volume Set", "price": "$118" },
+        { "name": "Mega Volume Set", "price": "$138" },
+        { "name": "Bottom Lashes", "price": "$25" },
+        { "name": "Lash Removal", "price": "$20" },
+        { "name": "Lash Shampoo", "price": "$10" }
+      ],
+      "refills": [
+        { "weeks": "2 weeks", "fromPrice": "$40" },
+        { "weeks": "3 weeks", "fromPrice": "$55" },
+        { "weeks": "4 weeks", "fromPrice": "$70" }
+      ]
+    }
+  ],
+
+  "serviceNotes": [
+    "Prices may vary depending on nail length, design, and lash style.",
+    "Advance appointments are recommended.",
+    "Walk-ins are welcome, subject to availability."
+  ],
+
+  "faq": [
+    {
+      "n": "01",
+      "tag": "Booking",
+      "q": "Do you take walk-ins?",
+      "a": "Walk-ins are welcome subject to availability — but for the popular slots (Friday evenings, Saturday afternoons) message ahead so we can hold the time."
+    },
+    {
+      "n": "02",
+      "tag": "Pricing",
+      "q": "Are the prices final?",
+      "a": "Prices are in SGD and may vary depending on nail length, design, and lash style. Hand-painted art is quoted per nail after we see your reference. A $20 booking fee secures your slot and is deducted from the service cost on completion."
+    },
+    {
+      "n": "03",
+      "tag": "Materials",
+      "q": "What brands do you use?",
+      "a": "Japanese gels (Paragel, Vetro, Gelato), BIAB from The GelBottle Inc., and Prolink adhesives for lashes. Patch tests available 48 hours before any first-time lash appointment."
+    },
+    {
+      "n": "04",
+      "tag": "Cancellation",
+      "q": "What if I need to reschedule?",
+      "a": "More than 24 hours before, no problem — we'll move you. Less than 24 hours, the $20 deposit is forfeited. Life happens; just tell us as soon as you know."
+    }
+  ],
+
+  "visit": {
+    "eyebrow": "Visit",
+    "titleLead": "Come",
+    "titleAccent": "take a",
+    "titleTrail": "Nap",
+    "lede": "17 Bali Lane, Level 02. Second door on the left, above the perfume shop. Buzz twice.",
+    "ctas": [
+      { "label": "Book on WhatsApp →", "href": "https://wa.me/85385484841", "primary": true },
+      { "label": "Open in Maps", "href": "https://maps.google.com/?q=17+Bali+Lane+Singapore", "primary": false }
+    ],
+    "details": [
+      { "label": "Hours", "value": ["Mon – Thu · 12:00 – 22:00", "Fri – Sun · 12:00 – 23:00", "Closed between sets · by appointment"] },
+      { "label": "Contact", "value": ["+853 8548 4841", "hello@nap.studio"] },
+      { "label": "Nearest MRT", "value": ["Bugis · 7 min walk", "Esplanade · 9 min walk"] },
+      { "label": "Payment", "value": ["PayNow · Cashless", "Cards accepted"] }
+    ]
+  }
+}

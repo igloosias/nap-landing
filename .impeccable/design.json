@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-16",
+  "title": "Design System: NAP",
+  "extensions": {
+    "colorMeta": {
+      "ink": { "role": "neutral",  "displayName": "Studio Ink",   "canonical": "#0A0A0A", "tonalRamp": ["#000000","#0A0A0A","#1A1A1A","#2A2A2A","#3A3A3A","#5A5A5A","#8A8A8A","#D8D8D8"] },
+      "bone": { "role": "neutral", "displayName": "Bone Paper", "canonical": "#F5F1EA", "tonalRamp": ["#1A1714","#3A332B","#5A504A","#7A6F65","#9C9289","#BFB6AD","#E1D9CF","#F5F1EA"] },
+      "signal": { "role": "primary", "displayName": "Signal Red", "canonical": "#E8334E", "tonalRamp": ["#1F0207","#4D0613","#7A0E22","#A61733","#C92949","#E8334E","#F26079","#F892A1"] },
+      "blush": { "role": "tertiary", "displayName": "Reserved Blush", "canonical": "#F2D8D8", "tonalRamp": ["#3A1B1B","#5C2E2E","#7E4545","#A05E5E","#C07777","#DC9494","#E8B6B6","#F2D8D8"] },
+      "bone-2": { "role": "neutral", "displayName": "Bone Sheet", "canonical": "#ECE6DB", "tonalRamp": ["#1A1814","#332E27","#4C463F","#665E54","#80786C","#9B9387","#C3BDAF","#ECE6DB"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display (General Sans 700)", "purpose": "Hero word and nothing else." },
+      "headline": { "displayName": "Headline (General Sans 700)", "purpose": "Section titles." },
+      "title": { "displayName": "Title (General Sans 700)", "purpose": "Step and FAQ question titles, artist names." },
+      "body": { "displayName": "Body (General Sans 400)", "purpose": "Running prose." },
+      "body-lg": { "displayName": "Body-Large (General Sans 400)", "purpose": "Lede paragraphs and pricing totals." },
+      "mono": { "displayName": "Mono (JetBrains Mono 500)", "purpose": "Micro-labels, table headers, captions, nav." },
+      "italic-accent": { "displayName": "Italic Accent (Spectral italic 400)", "purpose": "Reserved editorial whisper line." }
+    },
+    "shadows": [
+      { "name": "cta-bloom",        "value": "0 0 24px -2px rgba(232, 51, 78, 0.35)",  "purpose": "Resting soft glow under the Signal-Red CTA. The only ambient shadow in the system." },
+      { "name": "cta-bloom-hover",  "value": "0 16px 36px -10px rgba(232, 51, 78, 0.65)", "purpose": "Hover/focus lift paired with translateY(-2px)." }
+    ],
+    "motion": [
+      { "name": "ease-standard",  "value": "cubic-bezier(0.2, 0.6, 0.2, 1)", "purpose": "Default easing for state transitions and the BOOKED fragment." },
+      { "name": "dur-fast",       "value": "180ms",                            "purpose": "Color shifts (nav link color, link underline color)." },
+      { "name": "dur",            "value": "320ms",                            "purpose": "CTA lift, CTA arrow slide, default transitions." },
+      { "name": "dur-slow",       "value": "520ms",                            "purpose": "BOOKED letter fragment animation (per letter)." },
+      { "name": "stagger-letter", "value": "80ms",                             "purpose": "Per-letter delay inside the BOOKED word." },
+      { "name": "delay-hero",     "value": "600ms",                            "purpose": "Initial delay before the BOOKED animation begins so the static render shows the fracture." }
+    ],
+    "breakpoints": [
+      { "name": "md",  "value": "768px",  "purpose": "Steps, artist grid, FAQ columns, footer grid collapse to multi-column." },
+      { "name": "lg",  "value": "900px",  "purpose": "Hero switches from stacked to side-by-side (5fr / 7fr)." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary CTA",
+      "kind": "button",
+      "refersTo": "cta-primary",
+      "description": "Signal-Red flat CTA, 56px tall, single bloom, inline SVG arrow. The page's only saturated accent.",
+      "html": "<a href=\"#book\" class=\"ds-cta\"><span>See open slots</span><svg class=\"ds-cta-arrow\" width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" aria-hidden=\"true\"><path d=\"M3 10h13M11 5l5 5-5 5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"square\" stroke-linejoin=\"miter\"/></svg></a>",
+      "css": ".ds-cta { display: inline-flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 56px; padding: 0 24px; background: var(--signal); color: var(--bone); font-family: var(--font-display); font-size: 19px; font-weight: 700; letter-spacing: -0.01em; border-radius: 4px; text-decoration: none; box-shadow: 0 0 24px -2px rgba(232, 51, 78, 0.35); transition: transform 320ms cubic-bezier(0.2, 0.6, 0.2, 1), box-shadow 320ms cubic-bezier(0.2, 0.6, 0.2, 1); } .ds-cta-arrow { transition: transform 320ms cubic-bezier(0.2, 0.6, 0.2, 1); } .ds-cta:hover, .ds-cta:focus-visible { transform: translateY(-2px); box-shadow: 0 16px 36px -10px rgba(232, 51, 78, 0.65); } .ds-cta:hover .ds-cta-arrow, .ds-cta:focus-visible .ds-cta-arrow { transform: translateX(4px); } .ds-cta:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }"
+    },
+    {
+      "name": "Skip Link",
+      "kind": "nav",
+      "refersTo": "skip-link",
+      "description": "Offscreen-at-rest mono link that reveals on focus. WCAG-required keyboard entry.",
+      "html": "<a class=\"ds-skip\" href=\"#main\">Skip to content</a>",
+      "css": ".ds-skip { position: absolute; top: -100px; left: 16px; background: var(--ink); color: var(--bone); padding: 12px 16px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; z-index: 100; } .ds-skip:focus { top: 16px; }"
+    },
+    {
+      "name": "Hairline Divider",
+      "kind": "custom",
+      "refersTo": "hairline",
+      "description": "1px full-width divider. Reads on bone via rgba ink; on ink via rgba bone.",
+      "html": "<hr class=\"ds-hr\" />",
+      "css": ".ds-hr { height: 1px; background: rgba(10, 10, 10, 0.12); border: 0; margin: 0; } .ds-hr--bone { background: rgba(245, 241, 234, 0.18); }"
+    },
+    {
+      "name": "Mono Micro-Label",
+      "kind": "chip",
+      "refersTo": "mono-label",
+      "description": "JetBrains Mono 11px uppercase micro-label. The system's \"stage direction\" voice.",
+      "html": "<span class=\"ds-mono\">Open now in your city</span>",
+      "css": ".ds-mono { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; line-height: 1; color: var(--ink-70); } .ds-mono--dim { color: var(--ink-50); }"
+    },
+    {
+      "name": "Artist Card",
+      "kind": "card",
+      "refersTo": "artist-card-image",
+      "description": "Editorial artist card: 4:5 image in an ink well with a 4px corner, mono spec, title, blurb, and underlined link.",
+      "html": "<article class=\"ds-artist\">\n  <figure class=\"ds-artist-fig\"><img src=\"/artist-1.webp\" alt=\"Maya Reyes at work, holding a Russian manicure tool\" width=\"800\" height=\"1000\" /></figure>\n  <div class=\"ds-artist-meta\">\n    <span class=\"ds-mono\">Nails · Russian manicure</span>\n    <h3 class=\"ds-artist-name\">Maya Reyes</h3>\n    <p class=\"ds-artist-blurb\">Eight years in Brooklyn studios. Specializes in structured gel and negative-space design.</p>\n    <a class=\"ds-artist-link\" href=\"#book\">See open slots →</a>\n  </div>\n</article>",
+      "css": ".ds-artist { display: grid; gap: 16px; background: var(--bone); } .ds-artist-fig { margin: 0; overflow: hidden; background: var(--ink); border-radius: 4px; aspect-ratio: 4 / 5; } .ds-artist-fig img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; } .ds-artist-meta { display: grid; gap: 8px; } .ds-artist-name { font-family: var(--font-display); font-weight: 700; font-size: clamp(22px, 2.4vw, 28px); line-height: 1.15; letter-spacing: -0.02em; margin: 4px 0 0; } .ds-artist-blurb { color: var(--ink-70); line-height: 1.5; font-size: 15px; margin: 0; } .ds-artist-link { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); border-bottom: 1px solid currentColor; padding-bottom: 2px; text-decoration: none; align-self: start; margin-top: 8px; transition: color 180ms cubic-bezier(0.2, 0.6, 0.2, 1); } .ds-artist-link:hover, .ds-artist-link:focus-visible { color: var(--signal); }"
+    },
+    {
+      "name": "Pricing Table Row",
+      "kind": "custom",
+      "refersTo": "price-cell-strong",
+      "description": "Hairline-divided pricing row: bold service, mono duration, bold body-large from-price, mono underlined book link.",
+      "html": "<table class=\"ds-price\">\n  <thead>\n    <tr><th class=\"ds-mono\">Service</th><th class=\"ds-mono\">Duration</th><th class=\"ds-mono\">From</th><th class=\"ds-mono\" aria-label=\"Action\"></th></tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td class=\"ds-price-svc\">Russian manicure</td>\n      <td class=\"ds-price-dur\">75 min</td>\n      <td class=\"ds-price-from\">$78</td>\n      <td class=\"ds-price-action\"><a class=\"ds-price-link\" href=\"#book\">Book →</a></td>\n    </tr>\n  </tbody>\n</table>",
+      "css": ".ds-price { width: 100%; border-collapse: collapse; } .ds-price th, .ds-price td { padding: 16px 12px; text-align: left; border-bottom: 1px solid rgba(10, 10, 10, 0.12); } .ds-price th { color: var(--ink-50); border-bottom: 1px solid var(--ink); font-weight: 500; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; } .ds-price td { font-size: 17px; } .ds-price-svc { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.01em; } .ds-price-dur { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-70); } .ds-price-from { font-family: var(--font-display); font-weight: 700; font-size: 19px; } .ds-price-action { text-align: right; } .ds-price-link { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); border-bottom: 1px solid currentColor; padding-bottom: 2px; text-decoration: none; transition: color 180ms cubic-bezier(0.2, 0.6, 0.2, 1); } .ds-price-link:hover, .ds-price-link:focus-visible { color: var(--signal); }"
+    },
+    {
+      "name": "Step Item",
+      "kind": "custom",
+      "refersTo": "step",
+      "description": "Four-column-in-desktop step row: Signal-Red mono numeral, General Sans title, ink-70 body. Mobile stacks with hairline tops.",
+      "html": "<li class=\"ds-step\">\n  <span class=\"ds-step-n\">01</span>\n  <h3 class=\"ds-step-t\">Pick a service</h3>\n  <p class=\"ds-step-d\">Manicure, gel, extensions, lash lift, lash extensions. Five minutes, no upsell.</p>\n</li>",
+      "css": ".ds-step { display: grid; gap: 12px; padding: 24px 0; border-top: 1px solid rgba(245, 241, 234, 0.18); } .ds-step-n { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--signal); line-height: 1; } .ds-step-t { font-family: var(--font-display); font-weight: 700; font-size: clamp(22px, 2.4vw, 28px); line-height: 1.15; letter-spacing: -0.02em; margin: 0; color: var(--bone); } .ds-step-d { color: rgba(245, 241, 234, 0.72); line-height: 1.5; font-size: 15px; margin: 0; }"
+    },
+    {
+      "name": "FAQ Item",
+      "kind": "custom",
+      "refersTo": "faq-item",
+      "description": "Hairline-separated dt/dd pair. Title left, body right at 1fr / 2fr on desktop, single column on mobile.",
+      "html": "<div class=\"ds-faq\">\n  <dt class=\"ds-faq-q\">Are NAP artists vetted?</dt>\n  <dd class=\"ds-faq-a\">Yes. Every artist submits a portfolio, two certifications, and three reference clients before they appear on NAP.</dd>\n</div>",
+      "css": ".ds-faq { display: grid; grid-template-columns: 1fr; gap: 12px; padding: 32px 0; border-top: 1px solid rgba(10, 10, 10, 0.12); } .ds-faq-q { font-family: var(--font-display); font-weight: 700; font-size: clamp(22px, 2.4vw, 28px); line-height: 1.15; letter-spacing: -0.02em; margin: 0; } .ds-faq-a { color: var(--ink-70); line-height: 1.55; font-size: 17px; margin: 0; } @media (min-width: 768px) { .ds-faq { grid-template-columns: 1fr 2fr; gap: 48px; padding: 48px 0; } }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "mono-label",
+      "description": "Mono uppercase nav link, ink-70 at rest, full ink on hover/focus. No underlines.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Primary\">\n  <a class=\"ds-nav-link\" href=\"#how\">How it works</a>\n  <a class=\"ds-nav-link\" href=\"#artists\">Artists</a>\n</nav>",
+      "css": ".ds-nav { display: flex; flex-wrap: wrap; gap: 16px 24px; } .ds-nav-link { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-70); text-decoration: none; transition: color 180ms cubic-bezier(0.2, 0.6, 0.2, 1); } .ds-nav-link:hover, .ds-nav-link:focus-visible { color: var(--ink); }"
+    },
+    {
+      "name": "Footer Column",
+      "kind": "custom",
+      "refersTo": "footer",
+      "description": "Ink-background footer stack: oversized NAP mark, Spectral italic tagline, mono nav, CTA, mono metadata.",
+      "html": "<footer class=\"ds-footer\">\n  <div class=\"ds-footer-grid\">\n    <div class=\"ds-footer-brand\">\n      <span class=\"ds-footer-mark\">NAP</span>\n      <p class=\"ds-footer-tag\">Booked with your artist.</p>\n    </div>\n    <nav class=\"ds-footer-nav\" aria-label=\"Footer\">\n      <h3 class=\"ds-footer-h\">Navigate</h3>\n      <ul><li><a class=\"ds-footer-link\" href=\"#how\">How it works</a></li></ul>\n    </nav>\n    <div class=\"ds-footer-cta\">\n      <h3 class=\"ds-footer-h\">Get started</h3>\n      <a class=\"ds-cta\" href=\"#book\"><span>See open slots</span><svg class=\"ds-cta-arrow\" width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" aria-hidden=\"true\"><path d=\"M3 10h13M11 5l5 5-5 5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"square\" stroke-linejoin=\"miter\"/></svg></a>\n    </div>\n  </div>\n</footer>",
+      "css": ".ds-footer { background: var(--ink); color: var(--bone); padding: 96px 0 32px; } .ds-footer-grid { display: grid; grid-template-columns: 1fr; gap: 48px; max-width: 1440px; margin: 0 auto; padding: 0 24px; } @media (min-width: 768px) { .ds-footer-grid { grid-template-columns: 2fr 1fr 2fr; padding: 0 48px; } } .ds-footer-mark { font-family: var(--font-display); font-weight: 700; font-size: 48px; letter-spacing: -0.04em; display: block; margin-bottom: 12px; } .ds-footer-tag { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: 22px; color: rgba(245, 241, 234, 0.70); margin: 0; } .ds-footer-h { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245, 241, 234, 0.55); margin: 0 0 16px; font-weight: 500; } .ds-footer-nav ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; } .ds-footer-link { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bone); text-decoration: none; transition: color 180ms cubic-bezier(0.2, 0.6, 0.2, 1); } .ds-footer-link:hover, .ds-footer-link:focus-visible { color: var(--signal); } .ds-footer-cta { display: grid; gap: 16px; align-items: start; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Editorial Beauty — the Booking Is the Cover.",
+    "overview": "NAP is a beauty booking surface designed like a fashion editorial. The appointment is the look; each booking reads as a cover story, not a service menu. The system rejects the soft-pink beauty default in favor of a near-black studio backdrop, bone-white paper, and one flat unmissable block of signal red. Display type is monumental and behaves like matter — the hero word BOOKED fragments the bottom of its own letters as it settles into place. Everything else holds deliberate negative space; sections are paced like magazine spreads rather than product pages. Personality: warm, confident, lightly playful — never cutesy, never clinical. Density: low. Ornament: zero. The signal red, the hairline, and the monumental type do all the talking; nothing else competes.",
+    "keyCharacteristics": [
+      "Two-tone canvas (bone paper + ink studio) with one flat signal accent",
+      "Sharp corners everywhere (4px); hairlines (1px) carry all division",
+      "Mono micro-labels set at 11px with 0.18em tracking act as the system's 'stage directions'",
+      "Spectral italic is reserved for the editorial whisper line ('with your artist', 'Booked with your artist.')",
+      "Display type is monumental (up to 156px), tight (-0.04em tracking), and animated like physical matter",
+      "Glow appears exactly once: a soft red bloom under the primary CTA"
+    ],
+    "rules": [
+      { "name": "The One Voice Rule",       "section": "colors",     "body": "Signal Red is used on roughly one element per fold. Hover tints do not exist; saturation is held at one register so the CTA always reads first." },
+      { "name": "The Two-Canvas Rule",      "section": "colors",     "body": "The page alternates between Bone and Ink. Bone carries commercial intent (hero, artists, FAQ); Ink carries system intent (how-it-works, footer). Never split a single section across both." },
+      { "name": "The Whisper Rule",         "section": "typography", "body": "Spectral italic is reserved for the editorial subtitle that follows a Display or Headline. It is never used for body, navigation, or supporting copy. Its scarcity is what gives it warmth." },
+      { "name": "The Tight-By-Default Rule","section": "typography", "body": "Display and Headline track tight (-0.04em / -0.035em). Mono tracks open (+0.18em). The two regimes never bleed into each other; one is sculpture, the other is measurement." },
+      { "name": "The Flat-By-Default Rule", "section": "elevation",  "body": "Surfaces are flat at rest. Depth appears only as a response to state (hover, focus) and only on the primary CTA. Hairlines and Ink-on-Bone contrast carry all other separation." }
+    ],
+    "dos": [
+      "Use Signal Red sparingly — one element per fold. Each new use must displace an existing use, not add.",
+      "Set body text on contrast verified at AA against its surface (ink on bone, bone on ink).",
+      "Preserve --space-9 and --space-10 as section paddings. Sections that feel cramped have lost the negative-space doctrine.",
+      "Use mono micro-labels for any metadata, table column, caption, or step numeral.",
+      "Inline an SVG arrow on CTAs and any other 'go forward' gesture. Never use Unicode arrows.",
+      "Honor prefers-reduced-motion — the BOOKED fragment settles instantly, the CTA bloom stays static, smooth scrolling is disabled."
+    ],
+    "donts": [
+      "Introduce a second accent color. There is one voice; it speaks through Signal Red.",
+      "Add an eyebrow / kicker label above a heading. This house refuses kickers; reintroducing one is a craft violation.",
+      "Soften corners beyond 4px or round individual elements differently from the system default.",
+      "Decorate with icon fonts, glyph icons, or Lucide-style outline icons. Ink lines and SVG arrows are the only marks allowed.",
+      "Ship a section without an aria-label or aria-labelledby. Landmarks and headings carry the page for screen readers.",
+      "Invent testimonials, reviews, or artist names. All copy and imagery on this surface is placeholder by intent — replace before any go-live.",
+      "Reuse the hero BOOKED animation on any other element. The fragment is reserved for the first viewport and earns its drama by being singular."
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+Designed mobile landing page first viewport, portrait 9:16, NOT a photo, NOT a poster. Flat designed UI screen.
+
+Layout, top to bottom on a pale blush ground #F8E8E6:
+1. Top header band (thin, ~6% of height): brand mark "NAP" in small tracked-out caps on the left, in ink #1A1A1A; small mono lowercase links "Sign in" and "Book" on the right.
+2. Large empty whitespace region (~10% of height).
+3. Centered two-line headline, ~28% of height total, in calm display serif/serif-italic hybrid, regular weight, ink #1A1A1A, generous letter spacing. Line 1: "Your nails. Your lash." Line 2: "Your artist." with the second line slightly italic. Tight line height, centered horizontally.
+4. ~8% of vertical space below the headline.
+5. Centered primary CTA: a single pill-shaped button, warm taupe #9C6F66 fill, white text "See open slots", soft drop shadow, modest width, centered.
+6. ~10% of vertical space.
+7. Row of three artist product cards aligned horizontally near the bottom, each card ~28% of viewport width, equal gap, soft rounded corners (large radius), very low-contrast beauty photography of nail and lash work (single manicured hand on one card, single eye with lashes on another, soft blush beauty portrait on the third), each card with an italicized artist name caption beneath the photo in ink #1A1A1A.
+
+Palette and material world: pale blush ground #F8E8E6, ink #1A1A1A text, warm taupe #9C6F66 accent, soft white card surface #FBF7F4. Glossier / Sephora DTC editorial mood: soft, warm, generous whitespace, pill cards, soft shadow, low-contrast photography, no drama. No invented testimonials, no fake stats, no logos.

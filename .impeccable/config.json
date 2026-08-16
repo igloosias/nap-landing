@@ -1,0 +1,147 @@
+{
+  "buildPath": "comp",
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-radius",
+        "value": "999px",
+        "createdAt": "2026-08-16T07:14:02.464Z",
+        "reason": "Editorial narrative: pill radius for CTAs, chips, dots. Intended."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#3bc36a",
+        "createdAt": "2026-08-16T07:14:02.563Z",
+        "reason": "Editorial narrative: green blink dot. Intended."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#d43e7c",
+        "createdAt": "2026-08-16T07:14:02.665Z",
+        "reason": "Editorial narrative: signal CTA hover state. Intended."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "10px",
+        "createdAt": "2026-08-16T07:14:02.761Z",
+        "reason": "Editorial narrative: micro tile-tag chip label below the 11px mono micro-label. Intended."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "italiana",
+        "createdAt": "2026-08-16T07:26:08.538Z",
+        "reason": "Editorial: prestige whisper for 'Nana Adriana's Prestige'. Intended brand addition."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "48px",
+        "createdAt": "2026-08-16T07:30:16.843Z",
+        "reason": "Hero CTA min-height. Intended."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "9px",
+        "createdAt": "2026-08-16T07:30:16.933Z",
+        "reason": "Tile-tag chip micro-label. Intended."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "18px",
+        "createdAt": "2026-08-16T07:30:17.018Z",
+        "reason": "Editorial tile label. Intended."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(233, 75, 140, 0.06)",
+        "createdAt": "2026-08-16T07:30:17.109Z",
+        "reason": "Service row hover background. Intended."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#e5e5e5",
+        "createdAt": "2026-08-16T07:30:17.193Z",
+        "reason": "Tile placeholder background. Intended."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "20px",
+        "createdAt": "2026-08-16T07:37:45.425Z",
+        "reason": "Service price display. Intended."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "14px",
+        "createdAt": "2026-08-16T07:37:45.514Z",
+        "reason": "WhatsApp icon link size. Intended."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "15px",
+        "createdAt": "2026-08-16T07:37:45.608Z",
+        "reason": "Service blurb size. Intended."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(255, 255, 255, 0.40)",
+        "createdAt": "2026-08-16T07:37:45.693Z",
+        "reason": "Service note translucent background. Intended."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "pinyon script",
+        "createdAt": "2026-08-16T08:07:31.815Z",
+        "reason": "Prestige whisper script serif. Intended brand addition."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "44px",
+        "createdAt": "2026-08-16T08:07:31.902Z",
+        "reason": "clamp max in hero-prestige Pinyon Script. Intended."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "32px",
+        "createdAt": "2026-08-16T08:07:31.988Z",
+        "reason": "clamp max in service-name / visit-title. Intended."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "17px",
+        "createdAt": "2026-08-16T08:07:32.078Z",
+        "reason": "clamp min in service-name / service-price. Intended."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "176px",
+        "createdAt": "2026-08-16T08:07:32.161Z",
+        "reason": "clamp max in visit-title. Intended."
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "14px",
+        "createdAt": "2026-08-16T09:05:15.160Z",
+        "reason": "Photo-frame border-radius for service pictures. Intended."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(49, 5, 39, 1)",
+        "createdAt": "2026-08-16T09:16:33.510Z",
+        "reason": "Almoayyed gradient radial color. Intended."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(57, 5, 31, 1)",
+        "createdAt": "2026-08-16T09:16:33.602Z",
+        "reason": "Almoayyed gradient radial color. Intended."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(255, 255, 255, 1)",
+        "createdAt": "2026-08-16T09:16:33.694Z",
+        "reason": "Almoayyed gradient radial color. Intended."
+      }
+    ]
+  }
+}

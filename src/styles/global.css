@@ -1,0 +1,769 @@
+/* ==========================================================================
+   NAP — Design Tokens
+   SSENSE Editorial: oversized display type, monochrome + signal red,
+   sharp 4px corners, 1px hairline dividers, deliberate negative space.
+   ========================================================================== */
+
+:root {
+  /* Palette */
+  --ink: #0A0A0A;
+  --bone: #F5F1EA;
+  --signal: #E94B8C;
+  --blush: #F2D8D8;
+  --bone-2: #ECE6DB;
+  --hairline: rgba(10, 10, 10, 0.12);
+  --hairline-bone: rgba(245, 241, 234, 0.18);
+  --ink-70: rgba(10, 10, 10, 0.70);
+  --ink-50: rgba(10, 10, 10, 0.50);
+
+  /* Type */
+  --font-display: "General Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-serif: Georgia, "Times New Roman", serif;
+  --font-script: "Pinyon Script", "Snell Roundhand", "Apple Chancery", cursive;
+
+  /* Type scale */
+  --t-mono: 11px;
+  --t-body: 16px;
+  --t-body-lg: 19px;
+  --t-h3: 28px;
+  --t-h2: 44px;
+  --t-h1: clamp(56px, 11vw, 156px);
+  --t-footer-mark: 48px;
+  --t-stats-value: clamp(28px, 4vw, 44px);
+  --t-display-hero: clamp(48px, 9.5vw, 124px);
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* Shape */
+  --radius: 4px;
+  --radius-pill: 999px;
+  --hairline-w: 1px;
+
+  /* Editorial primitives (intentional drift) */
+  --signal-hover: #D43E7C;
+  --green: #3BC36A;
+
+  /* Motion */
+  --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+  --dur-fast: 180ms;
+  --dur: 320ms;
+  --dur-slow: 520ms;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bone);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: var(--t-body);
+  line-height: 1.5;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--bone);
+}
+
+/* Mono micro-label */
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--t-mono);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* Hairline */
+.hr {
+  height: var(--hairline-w);
+  background: var(--hairline);
+  border: 0;
+  margin: 0;
+}
+
+/* CTA — signal red, sharp 4px, single bloom */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 56px;
+  padding: 0 var(--space-5);
+  background: var(--signal);
+  color: var(--bone);
+  font-family: var(--font-display);
+  font-size: var(--t-body-lg);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  box-shadow: 0 0 24px -2px rgba(232, 51, 78, 0.35);
+}
+
+.cta .cta-arrow {
+  flex: 0 0 auto;
+  display: inline-flex;
+  transition: transform var(--dur) var(--ease);
+}
+
+.cta:hover,
+.cta:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px -10px rgba(232, 51, 78, 0.65);
+}
+
+.cta:hover .cta-arrow,
+.cta:focus-visible .cta-arrow {
+  transform: translateX(4px);
+}
+
+.cta:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* Display heading — monumental, fragments via clip-path animation */
+.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--t-h1);
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Accent italic serif */
+.italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--space-4);
+  background: var(--ink);
+  color: var(--bone);
+  padding: var(--space-3) var(--space-4);
+  z-index: 100;
+  font-family: var(--font-mono);
+  font-size: var(--t-mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--space-7);
+  }
+}
+
+/* Section */
+.section {
+  padding: var(--space-9) 0;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: var(--space-10) 0;
+  }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   Parallax — driven by --parallax-y set in /scripts/scroll.mjs
+   ========================================================================== */
+[data-parallax] {
+  transform: translate3d(0, var(--parallax-y, 0), 0);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-parallax] {
+    transform: none;
+  }
+}
+
+/* ==========================================================================
+   Scroll reveals — driven by IntersectionObserver in /scripts/reveal.mjs
+   ========================================================================== */
+[data-reveal] .word,
+[data-reveal] .mono,
+[data-reveal] .hr,
+[data-reveal] .lede,
+[data-reveal] .step,
+[data-reveal] .service-row,
+[data-reveal] .stats-item,
+[data-reveal] .faq-item {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+[data-reveal] .word {
+  display: inline-block;
+  transition-delay: calc(var(--i, 0) * 60ms);
+}
+
+[data-reveal] .hr {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+[data-reveal] .mono {
+  transition-delay: 80ms;
+}
+
+[data-reveal].is-revealed .word,
+[data-reveal].is-revealed .mono,
+[data-reveal].is-revealed .lede,
+[data-reveal].is-revealed .step,
+[data-reveal].is-revealed .service-row,
+[data-reveal].is-revealed .stats-item,
+[data-reveal].is-revealed .faq-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-reveal].is-revealed .hr {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] .word,
+  [data-reveal] .mono,
+  [data-reveal] .hr,
+  [data-reveal] .lede,
+  [data-reveal] .step,
+  [data-reveal] .service-row,
+  [data-reveal] .stats-item,
+  [data-reveal] .faq-item {
+    opacity: 1;
+    transform: none;
+  }
+  [data-reveal] .hr {
+    transform: none;
+  }
+}
+
+/* ==========================================================================
+   Filter chips (service filter for artists)
+   ========================================================================== */
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-7);
+}
+
+.filter-chip {
+  font-family: var(--font-mono);
+  font-size: var(--t-mono);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+
+.filter-chip[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--bone);
+}
+
+.filter-chip:hover,
+.filter-chip:focus-visible {
+  background: var(--ink);
+  color: var(--bone);
+}
+
+.filter-chip:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+}
+
+/* Grid filter behaviour */
+.artist-grid[data-active="nails"] .artist:not([data-service="nails"]),
+.artist-grid[data-active="lashes"] .artist:not([data-service="lashes"]) {
+  display: none;
+}
+
+/* Table filter behaviour */
+.price-table[data-active="nails"] tr[data-service="lashes"],
+.price-table[data-active="lashes"] tr[data-service="nails"] {
+  display: none;
+}
+
+/* ==========================================================================
+   Book-now section
+   ========================================================================== */
+.book-now {
+  background: var(--ink);
+  color: var(--bone);
+}
+
+.book-now .lede {
+  color: rgba(245, 241, 234, 0.78);
+}
+
+.book-now-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.cta-bone {
+  background: var(--bone);
+  color: var(--ink);
+  box-shadow: 0 0 24px -2px rgba(245, 241, 234, 0.25);
+}
+
+.cta-bone:hover,
+.cta-bone:focus-visible {
+  box-shadow: 0 16px 36px -10px rgba(245, 241, 234, 0.55);
+}
+
+.cta-outline {
+  background: transparent;
+  color: var(--bone);
+  border: 1px solid var(--bone);
+  box-shadow: none;
+}
+
+.cta-outline:hover,
+.cta-outline:focus-visible {
+  background: rgba(245, 241, 234, 0.08);
+  box-shadow: none;
+}
+
+.book-now-meta {
+  color: rgba(245, 241, 234, 0.55);
+  margin-top: var(--space-5);
+}
+
+/* ==========================================================================
+   FAQ accordion (details/summary)
+   ========================================================================== */
+.faq-list {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+
+.faq-item {
+  border-top: 1px solid var(--hairline);
+  padding: 0;
+  transition: background var(--dur-fast) var(--ease);
+}
+
+.faq-item:last-child {
+  border-bottom: 1px solid var(--hairline);
+}
+
+.faq-item[open] {
+  background: var(--bone-2);
+}
+
+.faq-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding: var(--space-6) 0;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.faq-summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-q {
+  margin: 0;
+}
+
+.faq-chevron {
+  flex: 0 0 auto;
+  transition: transform var(--dur) var(--ease);
+  color: var(--ink-70);
+}
+
+.faq-item[open] .faq-chevron {
+  transform: rotate(-180deg);
+  color: var(--ink);
+}
+
+.faq-a {
+  padding: 0 0 var(--space-6);
+  color: var(--ink-70);
+  line-height: 1.55;
+  font-size: var(--t-body);
+  max-width: 60ch;
+}
+
+@media (min-width: 768px) {
+  .faq-summary {
+    padding: var(--space-7) 0;
+  }
+  .faq-a {
+    padding: 0 0 var(--space-7) 50%;
+  }
+}
+
+.faq-summary:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 4px;
+}
+
+/* ==========================================================================
+   Sticky mobile CTA
+   ========================================================================== */
+.sticky-cta {
+  display: none;
+}
+
+@media (max-width: 899px) {
+  .sticky-cta {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: var(--space-4) var(--space-5) calc(var(--space-4) + env(safe-area-inset-bottom, 0px));
+    background: rgba(245, 241, 234, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--hairline);
+    z-index: 50;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+    pointer-events: none;
+  }
+
+  .sticky-cta.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .sticky-cta .cta {
+    width: 100%;
+  }
+}
+
+/* Reserve space at the bottom of the page so sticky CTA never covers content */
+@media (max-width: 899px) {
+  body {
+    padding-bottom: 96px;
+  }
+}
+
+/* ==========================================================================
+   Nav scrolled state — backdrop blur + bone tint after 80px scroll
+   Driven by .is-scrolled on <body> (set in /scripts/scroll.mjs)
+   ========================================================================== */
+.nav {
+  transition: background var(--dur) var(--ease), backdrop-filter var(--dur) var(--ease);
+}
+
+body.is-scrolled .nav {
+  background: rgba(245, 241, 234, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--hairline);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   Vet section — 4-up hairline grid
+   ========================================================================== */
+.vet {
+  background: var(--bone);
+}
+
+.vet-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+@media (min-width: 768px) {
+  .vet-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .vet-item {
+    padding: 0 var(--space-5);
+    border-left: 1px solid var(--hairline);
+  }
+  .vet-item:first-child {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
+.vet-item {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-6) 0;
+  border-top: 1px solid var(--hairline);
+}
+
+@media (min-width: 768px) {
+  .vet-item {
+    padding: var(--space-7) var(--space-5);
+    border-top: 0;
+  }
+}
+
+.vet-n {
+  color: var(--signal);
+}
+
+.vet-t {
+  margin: 0;
+}
+
+.vet-d {
+  margin: 0;
+  color: var(--ink-70);
+  font-size: var(--t-body);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   Press strip — type-only sample wordmarks
+   ========================================================================== */
+.press {
+  background: var(--bone);
+  padding: var(--space-8) 0;
+}
+
+@media (min-width: 768px) {
+  .press {
+    padding: var(--space-9) 0;
+  }
+}
+
+.press-head {
+  margin-bottom: var(--space-6);
+}
+
+.press-kicker {
+  color: var(--ink-50);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.press-strip {
+  list-style: none;
+  margin: 0;
+  padding: var(--space-6) 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+@media (min-width: 600px) {
+  .press-strip {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5) var(--space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .press-strip {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.press-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 56px;
+  color: var(--ink);
+  opacity: 0.78;
+  transition: opacity var(--dur-fast) var(--ease);
+}
+
+.press-item:hover {
+  opacity: 1;
+}
+
+.press-word {
+  line-height: 1;
+  font-size: 22px;
+}
+
+.press-word.serif {
+  font-family: var(--font-serif);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  font-size: var(--t-press-serif);
+}
+
+.press-word.serif.italic {
+  font-style: italic;
+}
+
+.press-word.mono {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: var(--t-press-mono);
+}
+
+.press-word.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  font-size: var(--t-press-display);
+}
+
+.press-meta {
+  color: var(--ink-50);
+  margin-top: var(--space-4);
+  text-align: center;
+}
+
+/* ==========================================================================
+   Nav scroll behavior — slight elevation after scroll
+   ========================================================================== */
+.nav-link {
+  transition: color var(--dur-fast) var(--ease), opacity var(--dur-fast) var(--ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .press-item {
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   Hero parallax — driven by --parallax-y set in /scripts/scroll.mjs
+   ========================================================================== */
+[data-parallax] {
+  transform: translateY(var(--parallax-y, 0));
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-parallax] {
+    transform: none;
+  }
+}

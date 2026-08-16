@@ -1,0 +1,1312 @@
+---
+import Layout from "../layouts/Layout.astro";
+import site from "../data/site.json";
+
+const {
+  brand, primaryCta, heroImage, logo, serviceImages, nav,
+  services, serviceNotes, how, stats, faq, visit
+} = site;
+
+const navLinks = nav;
+
+// Helper: WhatsApp deep-link with pre-filled message
+const waFor = (serviceName) => {
+  const phone = brand.whatsappNumber;
+  const msg = `Hi NAP, I'd like to book the ${serviceName}.`;
+  return `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+};
+const waGeneral = `https://wa.me/${brand.whatsappNumber}`;
+---
+
+<Layout>
+  <main id="main">
+
+    <!-- ============================================================== -->
+    <!-- HERO — full-bleed image, parallax, layered text              -->
+    <!-- ============================================================== -->
+    <section class="hero" aria-label="Hero">
+      <img
+        class="hero-image"
+        src={heroImage.src}
+        alt=""
+        aria-hidden="true"
+        width="1600"
+        height="872"
+        loading="eager"
+        decoding="async"
+        data-parallax
+      />
+      <div class="hero-scrim" aria-hidden="true"></div>
+
+      <div class="hero-overlay">
+        <header class="hero-top">
+          <a href="/" class="brand" aria-label={`${brand.name} home`}>
+            <img class="brand-logo" src={logo.src} alt={logo.alt} width="96" height="82" />
+          </a>
+
+          <nav class="nav-links" data-slide-tabs aria-label="Primary">
+            <span class="nav-cursor" aria-hidden="true"></span>
+            {navLinks.map((l) => (
+              <a href={l.href} class="nav-link" data-nav-link data-active={l.href === "#services"}>{l.label}</a>
+            ))}
+          </nav>
+        </header>
+
+        <div class="hero-bottom">
+          <h1 class="display hero-display" aria-label={brand.heroLabel}>
+            <span class="hero-row row-1">Nails<span class="hero-dot">.</span></span>
+            <span class="hero-row row-2">Lashes<span class="hero-dot">.</span></span>
+            <span class="hero-row row-3">Booked<span class="hero-dot">.</span></span>
+          </h1>
+          <p class="hero-prestige"><span class="script">{brand.heroPrestige}</span></p>
+
+          <div class="hero-cta">
+            <a href={waGeneral} class="cta-pink cta-pill" target="_blank" rel="noopener">
+              <span>Book now</span>
+            </a>
+            <p class="mono hero-meta-line">{brand.hoursWeekday} · {brand.hoursWeekend}</p>
+            <p class="mono hero-fee-line">{brand.bookingFee}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SERVICES — two dedicated sections (nails first, lashes second) -->
+    <!-- ============================================================== -->
+    <section id="nails" class="section services-half services-half--img-left" aria-labelledby="nails-title">
+      <div class="services-half-grid">
+        <figure class="services-half-figure">
+          <img
+            src="/assets/nail-section.webp"
+            alt={serviceImages.alt.nails}
+            width="1600"
+            height="900"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+
+        <div class="services-half-text">
+          <p class="mono services-half-kicker">The menu</p>
+          <h2 id="nails-title" class="display services-half-title">Nails</h2>
+
+          <details class="services-dropdown" open>
+            <summary class="services-dropdown-summary">
+              <span class="mono services-dropdown-eyebrow">Tap to view {services[0].items.length} services</span>
+              <span class="services-dropdown-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="services-dropdown-body">
+              <ul class="service-list" role="list">
+                {services[0].items.map((s) => (
+                  <li class="service-row">
+                    <a href={waFor(s.name)} class="service-link" target="_blank" rel="noopener" aria-label={`Book ${s.name} on WhatsApp`}>
+                      <span class="service-name">{s.name}</span>
+                      <span class="service-price">{s.price}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              {services[0].extensions && (
+                <div class="services-sub">
+                  <p class="mono services-sub-kicker">Nail extensions &amp; add-ons</p>
+                  <ul class="service-list service-list-sub" role="list">
+                    {services[0].extensions.map((s) => (
+                      <li class="service-row">
+                        <a href={waFor(s.name)} class="service-link" target="_blank" rel="noopener" aria-label={`Book ${s.name} on WhatsApp`}>
+                          <span class="service-name">{s.name}</span>
+                          <span class="service-price">{s.price}</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="lashes" class="section services-half services-half--img-right" aria-labelledby="lashes-title">
+      <div class="services-half-grid">
+        <div class="services-half-text">
+          <p class="mono services-half-kicker">The menu</p>
+          <h2 id="lashes-title" class="display services-half-title">Lashes</h2>
+
+          <details class="services-dropdown" open>
+            <summary class="services-dropdown-summary">
+              <span class="mono services-dropdown-eyebrow">Tap to view {services[1].items.length} services</span>
+              <span class="services-dropdown-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="services-dropdown-body">
+              <ul class="service-list" role="list">
+                {services[1].items.map((s) => (
+                  <li class="service-row">
+                    <a href={waFor(s.name)} class="service-link" target="_blank" rel="noopener" aria-label={`Book ${s.name} on WhatsApp`}>
+                      <span class="service-name">{s.name}</span>
+                      <span class="service-price">{s.price}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              {services[1].refills && (
+                <div class="services-refill">
+                  <p class="mono services-sub-kicker">Lash refill</p>
+                  <ul class="service-list service-list-sub" role="list">
+                    {services[1].refills.map((r) => (
+                      <li class="service-row">
+                        <a href={waGeneral} class="service-link" target="_blank" rel="noopener">
+                          <span class="service-name">{r.weeks}</span>
+                          <span class="service-price">{r.fromPrice}</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </details>
+        </div>
+
+        <figure class="services-half-figure">
+          <img
+            src="/assets/lash-section.webp"
+            alt={serviceImages.alt.lashes}
+            width="1600"
+            height="900"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </div>
+    </section>
+
+    <ul class="services-notes container">
+      {serviceNotes.map((n) => (
+        <li class="mono services-note-line">— {n}</li>
+      ))}
+    </ul>
+
+    <!-- ============================================================== -->
+    <!-- HOW IT WORKS — sample chats                                   -->
+    <!-- ============================================================== -->
+    <section id="how" class="section how" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-head-row">
+          <div>
+            <p class="mono kicker">Chapter 03</p>
+            <h2 id="how-title" class="display section-h2">How it works<span class="dot">·</span></h2>
+          </div>
+          <p class="italic section-lede">{how.lede}</p>
+        </div>
+
+        <ol class="how-steps" role="list">
+          {how.steps.map((s, i) => (
+            <li class:list={["how-step", i > 0 ? "how-step-bordered" : ""]}>
+              <div class="how-step-head">
+                <span class="display how-step-num">{s.n}</span>
+                <span class="mono how-step-tag">{s.tag}</span>
+              </div>
+              <h3 class="display how-step-t">{s.title}</h3>
+              <p class="how-step-body">{s.body}</p>
+              <div class="how-step-sample">
+                <p class="mono how-sample-who">{s.sample.who}</p>
+                <p class="italic how-sample-text">"{s.sample.text}"</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        <div class="how-foot">
+          <p class="italic how-foot-text">{how.footnote}</p>
+          <a href={waGeneral} class="cta-pink cta-pill" target="_blank" rel="noopener">Open WhatsApp →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- STATS — by the numbers                                        -->
+    <!-- ============================================================== -->
+    <section class="section stats" aria-label="Stats">
+      <div class="container">
+        <div class="section-head-row">
+          <div>
+            <p class="mono kicker">Chapter 04</p>
+            <h2 class="display section-h2">By the numbers<span class="dot">·</span></h2>
+          </div>
+          <p class="italic section-lede">Four years in the same room, one chair at a time.</p>
+        </div>
+
+        <div class="stats-grid">
+          {stats.map((s) => (
+            <div class="stats-cell">
+              <p class="mono stats-kicker">{s.label}</p>
+              <p class="display stats-value">{s.value}</p>
+              <p class="italic stats-note">{s.note}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- FAQ — sticky side panel                                       -->
+    <!-- ============================================================== -->
+    <section id="faq" class="section faq" aria-labelledby="faq-title">
+      <div class="container faq-grid">
+        <div class="faq-side">
+          <p class="mono kicker">Chapter 05</p>
+          <h2 id="faq-title" class="display section-h2">Questions<span class="dot">·</span></h2>
+          <p class="italic faq-side-lede">The things people ask us on WhatsApp, collected. If yours isn't here, just send it — we answer fast.</p>
+          <a href={waGeneral} class="cta-pink cta-pill faq-side-cta" target="_blank" rel="noopener">Ask us directly →</a>
+        </div>
+
+        <div class="faq-list-wrap" data-faq-list>
+          {faq.map((f, i) => (
+            <details class="faq-item" open={i === 0 ? "" : undefined}>
+              <summary class="faq-summary">
+                <div>
+                  <p class="mono faq-meta">{f.n} — {f.tag}</p>
+                  <h3 class="display faq-q">{f.q}</h3>
+                </div>
+                <span class="faq-chev display" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-a-wrap">
+                <p class="italic faq-a">{f.a}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- VISIT — come take a nap                                       -->
+    <!-- ============================================================== -->
+    <section id="visit" class="section visit">
+      <div class="container visit-grid">
+        <div class="visit-left">
+          <p class="mono kicker visit-kicker">Chapter 06 — {visit.eyebrow}</p>
+          <h2 class="display visit-title">
+            {visit.titleLead} <span class="italic visit-accent">{visit.titleAccent}</span><br />{visit.titleTrail}<span class="dot">·</span>
+          </h2>
+          <p class="italic visit-lede">{visit.lede}</p>
+
+          <div class="visit-ctas">
+            {visit.ctas.map((c) => (
+              <a href={c.href} class={c.primary ? "cta-pink cta-pill" : "cta-ghost cta-pill"} target="_blank" rel="noopener">{c.label}</a>
+            ))}
+          </div>
+        </div>
+
+        <dl class="visit-details">
+          {visit.details.map((d) => (
+            <div class="visit-row">
+              <dt class="mono visit-row-k">{d.label}</dt>
+              <dd class="visit-row-v">
+                {d.value.map((line) => (
+                  <p>{line}</p>
+                ))}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- FOOTER                                                         -->
+    <!-- ============================================================== -->
+    <footer class="footer" aria-label="Footer">
+      <div class="container footer-top">
+        <div>
+          <img class="footer-logo" src={logo.src} alt={logo.alt} width="160" height="136" />
+          <p class="footer-tag italic">{brand.footerTagline || "A single-chair studio for nails & lashes."}</p>
+        </div>
+        <div class="footer-social">
+          <a href={`https://instagram.com/${brand.instagramHandle.replace(/^@/, "")}`} class="footer-link" target="_blank" rel="noopener">{brand.instagramHandle}</a>
+          <a href={`https://tiktok.com/@${brand.tiktokHandle.replace(/^@/, "")}`} class="footer-link" target="_blank" rel="noopener">{brand.tiktokHandle}</a>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <p class="mono footer-fine">© 2025 {brand.company}</p>
+        <p class="mono footer-fine footer-fine-mid">Site set in General Sans, JetBrains Mono & Spectral · Built slowly in Singapore</p>
+        <p class="mono footer-fine footer-status"><span class="blink-dot blink-dot-pink" aria-hidden="true"></span>Accepting bookings</p>
+      </div>
+    </footer>
+
+    <!-- ============================================================== -->
+    <!-- STICKY MOBILE CTA                                              -->
+    <!-- ============================================================== -->
+    <div class="sticky-cta" data-sticky-cta aria-hidden="true">
+      <a href={waGeneral} class="cta-pink cta-pill" target="_blank" rel="noopener">Book on WhatsApp →</a>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  /* ============================================================== */
+  /* EDITORIAL NARRATIVE — primitives shared across the page        */
+  /* ============================================================== */
+  :root {
+    --ticker-h: 36px;
+    --marquee-h: 96px;
+  }
+
+  .dot {
+    display: inline-block;
+    margin: 0 0.18em;
+    color: var(--signal);
+    transform: translateY(-0.06em);
+  }
+
+  .kicker { color: var(--ink-50); }
+
+  /* Marquee mask — fade edges */
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+
+  /* Grain overlay (hero only) */
+  .grain { position: relative; isolation: isolate; }
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: multiply;
+    z-index: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  /* Blink dot */
+  .blink-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: #3BC36A;
+    animation: blink 1.4s steps(2) infinite;
+  }
+  .blink-dot-pink { background: var(--signal); }
+  @keyframes blink { 50% { opacity: 0.25; } }
+
+  /* CTA pills */
+  .cta-pink {
+    background: var(--signal);
+    color: var(--bone);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    transition: transform var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+  }
+  .cta-pink:hover, .cta-pink:focus-visible { transform: translateY(-1px); background: #D43E7C; }
+  .cta-ghost {
+    background: transparent;
+    color: var(--bone);
+    border: 1px solid rgba(245, 241, 234, 0.20);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    transition: background var(--dur-fast) var(--ease);
+  }
+  .cta-ghost:hover, .cta-ghost:focus-visible { background: rgba(245, 241, 234, 0.08); }
+
+  .cta-pill {
+    border-radius: 999px;
+    padding: 14px 24px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  /* Underline-on-hover nav link */
+  .link-u {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size var(--dur) var(--ease);
+    padding-bottom: 2px;
+  }
+  .link-u:hover, .link-u:focus-visible { background-size: 100% 1px; }
+
+  /* ============================================================== */
+  /* (ticker-bar block removed in round 7)                          */
+
+  /* ============================================================== */
+  /* NAV (slide-tabs, layered on hero)                              */
+  /* ============================================================== */
+  .brand {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.18em;
+    text-decoration: none;
+    color: inherit;
+  }
+  .brand-logo {
+    display: block;
+    height: 64px;
+    width: 64px;
+  }
+  @media (min-width: 768px) {
+    .brand-logo { height: 88px; width: 88px; }
+  }
+  .nav-links {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    position: relative;
+    padding: 4px;
+    border: 1px solid rgba(245, 241, 234, 0.20);
+    border-radius: 999px;
+    background: rgba(10, 10, 10, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .nav-link {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245, 241, 234, 0.78);
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 999px;
+    transition: color var(--dur-fast) var(--ease);
+  }
+  .nav-link[data-active="true"],
+  .nav-link:hover,
+  .nav-link:focus-visible {
+    color: var(--ink);
+  }
+  .nav-cursor {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-radius: 999px;
+    background: var(--bone);
+    z-index: 0;
+    opacity: 0;
+    transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+    pointer-events: none;
+    /* width/height are set instantly via JS — no transition on layout props */
+  }
+  .nav-cta {
+    background: var(--signal);
+    color: var(--bone);
+    border-radius: 999px;
+    padding: 10px 18px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    transition: background var(--dur-fast) var(--ease);
+  }
+  .nav-cta:hover, .nav-cta:focus-visible { background: #D43E7C; }
+
+  /* ============================================================== */
+  /* HERO — full-bleed image with layered text                    */
+  /* ============================================================== */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    background: var(--ink);
+    color: var(--bone);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -2;
+  }
+
+  .hero-scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to top, rgba(10, 10, 10, 0.82) 0%, rgba(10, 10, 10, 0.30) 38%, rgba(10, 10, 10, 0) 60%),
+      linear-gradient(to right, rgba(10, 10, 10, 0.55) 0%, rgba(10, 10, 10, 0) 50%);
+    z-index: -1;
+  }
+
+  .hero-overlay {
+    position: relative;
+    min-height: 100svh;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: var(--space-6);
+    padding: var(--space-5) var(--space-5) var(--space-7);
+  }
+  @media (min-width: 768px) {
+    .hero-overlay { padding: var(--space-7); }
+  }
+
+  .hero-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-5);
+    flex-wrap: wrap;
+    z-index: 2;
+  }
+
+  /* Override nav color for hero context */
+  .hero .nav-link {
+    color: rgba(245, 241, 234, 0.78);
+  }
+
+  .hero-bottom {
+    display: grid;
+    gap: var(--space-5);
+    align-content: end;
+    max-width: 760px;
+    z-index: 2;
+  }
+
+  .hero-display {
+    font-size: var(--t-display-hero);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin: 0;
+    color: var(--bone);
+  }
+  .hero-row { display: block; }
+  .hero-row.row-1 { padding-left: 0; }
+  .hero-row.row-2 { padding-left: 8vw; line-height: 0.92; }
+  @media (min-width: 768px) {
+    .hero-row.row-2 { padding-left: 14vw; }
+  }
+  .hero-row.row-3 { padding-left: 0; }
+  .hero-dot {
+    color: var(--signal);
+    display: inline-block;
+    margin: 0 0.05em;
+    transform: translateY(-0.04em);
+  }
+  .hero-sub {
+    font-size: clamp(22px, 3vw, 36px);
+    margin: 0;
+    color: rgba(245, 241, 234, 0.82);
+    line-height: 1.1;
+  }
+
+  .hero-prestige {
+    font-family: var(--font-script);
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(28px, 3.2vw, 44px);
+    letter-spacing: 0.01em;
+    color: rgba(245, 241, 234, 0.95);
+    margin: 0;
+    line-height: 1.1;
+  }
+
+  .hero-cta {
+    display: grid;
+    gap: var(--space-5);
+    align-items: start;
+  }
+  .hero-cta .cta-pink {
+    width: fit-content;
+    padding-left: 20px;
+    padding-right: 16px;
+    min-height: 48px;
+  }
+  .hero-meta-line {
+    color: rgba(245, 241, 234, 0.55);
+    margin: 0;
+  }
+  .hero-fee-line {
+    color: rgba(245, 241, 234, 0.45);
+    margin: 0;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  /* MARQUEE STRIP removed in round 7                              */
+
+  /* ============================================================== */
+  /* SERVICES                                                       */
+  /* ============================================================== */
+  .services {
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-10);
+    position: relative;
+    background-color: #D7D5D5;
+    background-image:
+      radial-gradient(circle at 66.94% 46.43%, rgba(215, 213, 213, 1) 0%, rgba(215, 213, 213, 0.844) 19.02%, rgba(215, 213, 213, 0.5) 38.05%, rgba(215, 213, 213, 0.156) 57.07%, rgba(215, 213, 213, 0) 76.1%),
+      radial-gradient(circle at 34.69% 66.31%, rgba(49, 5, 39, 1) 0%, rgba(49, 5, 39, 0.844) 12.73%, rgba(49, 5, 39, 0.5) 25.45%, rgba(49, 5, 39, 0.156) 38.18%, rgba(49, 5, 39, 0) 50.9%),
+      radial-gradient(circle at 48.93% 19.32%, rgba(57, 5, 31, 1) 0%, rgba(57, 5, 31, 0.844) 16.75%, rgba(57, 5, 31, 0.5) 33.5%, rgba(57, 5, 31, 0.156) 50.25%, rgba(57, 5, 31, 0) 67%),
+      radial-gradient(circle at 80.23% 87.54%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.844) 10.28%, rgba(255, 255, 255, 0.5) 20.55%, rgba(255, 255, 255, 0.156) 30.83%, rgba(255, 255, 255, 0) 41.1%);
+  }
+  .services::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.280'/></svg>");
+    background-size: 120px 120px;
+    background-repeat: repeat;
+    mix-blend-mode: overlay;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .services > .container { position: relative; z-index: 1; }
+
+  /* services-half — nails/lashes split sections, 50/50 horizontal */
+  .services-half {
+    background: var(--bone);
+    padding-top: var(--space-9);
+    padding-bottom: var(--space-9);
+  }
+  .services-half-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+  .services-half-grid > * {
+    min-width: 0;
+  }
+  @media (min-width: 768px) {
+    .services-half-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      align-items: center;
+    }
+    .services-half--img-right .services-half-text { order: 0; }
+    .services-half--img-right .services-half-figure { order: 1; }
+  }
+  .services-half-figure {
+    margin: 0;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--ink);
+  }
+  .services-half-figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+  .services-half-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--space-6);
+    gap: var(--space-4);
+  }
+  @media (min-width: 768px) {
+    .services-half-text { padding: var(--space-7); }
+  }
+  .services-half-kicker {
+    color: var(--ink-50);
+    margin: 0;
+  }
+  .services-half-title {
+    font-size: clamp(48px, 6vw, 80px);
+    letter-spacing: -0.035em;
+    line-height: 1;
+    margin: 0;
+    text-transform: uppercase;
+  }
+  .services-dropdown { margin-top: var(--space-4); }
+
+  .section-head-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-6);
+    margin-bottom: var(--space-9);
+    flex-wrap: wrap;
+  }
+  .section-h2 {
+    font-size: clamp(48px, 7vw, 96px);
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+    margin: var(--space-3) 0 0;
+  }
+  .services .section-h2 { color: var(--bone); }
+  .section-lede {
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.4;
+    max-width: 38ch;
+    color: var(--ink-70);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-9);
+  }
+  @media (min-width: 1024px) {
+    /* Narrower columns + wider middle gutter. Pictures stay full-width
+       inside their column but the columns themselves are narrower, so
+       the pictures no longer dominate. */
+    .services-grid {
+      grid-template-columns: 32% 36% 32%;
+      gap: 0;
+    }
+    .services-col--lashes {
+      border-left: 1px solid var(--hairline);
+      padding-left: var(--space-6);
+    }
+  }
+
+  .services-col-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--ink);
+    margin-bottom: var(--space-5);
+  }
+  .services-col-title {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-3);
+  }
+  .services-col-name {
+    font-size: clamp(28px, 3.5vw, 40px);
+    letter-spacing: -0.02em;
+    color: var(--bone);
+  }
+  .services-col-count {
+    color: var(--ink-50);
+  }
+  .services-col-room {
+    color: var(--signal);
+  }
+
+  .services-col-figure-btn {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto var(--space-5);
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    text-align: left;
+    color: inherit;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .services-col-figure-btn:focus-visible {
+    outline: 2px solid var(--signal);
+    outline-offset: 4px;
+  }
+
+  .services-col-figure {
+    position: relative;
+    margin: 0;
+    background: var(--ink);
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border: 3px solid var(--ink);
+    border-radius: 14px;
+  }
+  .services-col-figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .services-col-figure-cta {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: var(--space-3) var(--space-4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    background: linear-gradient(to top, rgba(10, 10, 10, 0.78), rgba(10, 10, 10, 0));
+    color: var(--bone);
+    pointer-events: none;
+  }
+  .services-col-figure-cta-text {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .services-col-figure-cta-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--bone);
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1;
+    transition: transform var(--dur) var(--ease);
+  }
+  .services-col-figure-btn.is-open .services-col-figure-cta-icon {
+    transform: rotate(45deg);
+  }
+
+  .services-col-body {
+    overflow: hidden;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .services-col-body {
+      transition: opacity var(--dur) var(--ease);
+    }
+  }
+  .services-col-body[hidden] { display: none; }
+
+  .service-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .service-list > * + * { border-top: 1px solid var(--hairline); }
+  .service-list-sub { margin-top: var(--space-2); }
+
+  .service-row { transition: background var(--dur-fast) var(--ease); }
+  .service-row:hover { background: rgba(233, 75, 140, 0.06); }
+
+  .service-link {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-3) 0;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .service-link:focus-visible {
+    outline: 2px solid var(--signal);
+    outline-offset: 4px;
+  }
+
+  .service-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(16px, 1.6vw, 19px);
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+  }
+  .service-price {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(15px, 1.4vw, 17px);
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    color: var(--signal);
+  }
+
+  .services-sub,
+  .services-refill {
+    margin-top: var(--space-7);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--hairline);
+  }
+  .services-refill {
+    border: 1px solid var(--hairline);
+    padding: var(--space-5);
+    background: rgba(255, 255, 255, 0.40);
+  }
+  .services-sub-kicker {
+    color: var(--ink-50);
+    margin: 0 0 var(--space-3);
+  }
+
+  .services-notes {
+    list-style: none;
+    margin: var(--space-9) 0 0;
+    padding: 0;
+    display: grid;
+    gap: 4px;
+    border-top: 1px solid var(--hairline);
+    padding-top: var(--space-5);
+  }
+  .services-note-line {
+    color: var(--ink-50);
+    margin: 0;
+  }
+
+  /* ============================================================== */
+  /* HOW IT WORKS                                                   */
+  /* ============================================================== */
+  .how {
+    background: var(--bone-2);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .how-steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  @media (min-width: 768px) {
+    .how-steps {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+    .how-step-bordered {
+      border-left: 1px solid var(--hairline);
+      padding-left: var(--space-6);
+    }
+  }
+
+  .how-step { display: grid; gap: var(--space-3); }
+  .how-step-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: var(--space-4);
+  }
+  .how-step-num {
+    font-size: clamp(56px, 7vw, 80px);
+    color: var(--signal);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  .how-step-tag {
+    color: var(--ink-50);
+  }
+  .how-step-t {
+    font-size: clamp(28px, 3vw, 36px);
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin: 0 0 var(--space-3);
+  }
+  .how-step-body {
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgba(10, 10, 10, 0.78);
+    margin: 0;
+  }
+  .how-step-sample {
+    margin-top: var(--space-5);
+    padding: var(--space-4);
+    border: 1px solid var(--hairline);
+    background: var(--bone);
+  }
+  .how-sample-who {
+    color: var(--ink-50);
+    margin: 0 0 4px;
+  }
+  .how-sample-text {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .how-foot {
+    margin-top: var(--space-9);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--hairline);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+  .how-foot-text {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  /* ============================================================== */
+  /* STATS                                                          */
+  /* ============================================================== */
+  .stats { padding-top: var(--space-10); padding-bottom: var(--space-10); }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+  }
+  @media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
+  .stats-cell {
+    background: var(--bone);
+    padding: var(--space-7);
+    display: grid;
+    gap: var(--space-3);
+    align-content: start;
+  }
+  @media (min-width: 768px) { .stats-cell { padding: var(--space-8); } }
+  .stats-kicker { color: var(--ink-50); }
+  .stats-value {
+    font-size: clamp(48px, 6vw, 72px);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin: 0;
+  }
+  .stats-value :global(.dot) { color: var(--signal); }
+  .stats-note {
+    font-size: 16px;
+    color: var(--ink-70);
+    margin: 0;
+  }
+
+  /* ============================================================== */
+  /* FAQ                                                            */
+  /* ============================================================== */
+  .faq {
+    border-top: 1px solid var(--hairline);
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-10);
+  }
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+  }
+  @media (min-width: 1024px) {
+    .faq-grid {
+      grid-template-columns: 4fr 8fr;
+      gap: var(--space-9);
+    }
+  }
+  .faq-side { position: sticky; top: var(--space-7); align-self: start; }
+  .faq-side-lede {
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.4;
+    margin: var(--space-5) 0 0;
+    max-width: 36ch;
+  }
+  .faq-side-cta { margin-top: var(--space-7); }
+
+  .faq-list-wrap {
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .faq-list-wrap > * + * { border-top: 1px solid var(--hairline); }
+  .faq-item { padding: 0; transition: background var(--dur-fast) var(--ease); }
+  .faq-item[open] { background: var(--bone-2); }
+
+  .faq-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-5);
+    padding: var(--space-6) 0;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  .faq-summary::-webkit-details-marker { display: none; }
+  .faq-meta { color: var(--ink-50); margin: 0; }
+  .faq-q {
+    margin: 4px 0 0;
+    font-size: clamp(22px, 2.4vw, 28px);
+    letter-spacing: -0.02em;
+  }
+  .faq-chev {
+    font-size: 32px;
+    color: var(--signal);
+    transition: transform var(--dur) var(--ease);
+    flex: 0 0 auto;
+  }
+  .faq-item[open] .faq-chev { transform: rotate(45deg); }
+
+  .faq-a-wrap {
+    padding: 0 0 var(--space-6);
+    max-width: 64ch;
+  }
+  .faq-a {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.55;
+    color: rgba(10, 10, 10, 0.78);
+  }
+
+  /* ============================================================== */
+  /* VISIT                                                          */
+  /* ============================================================== */
+  .visit {
+    background: var(--ink);
+    color: var(--bone);
+  }
+  .visit-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+  }
+  @media (min-width: 1024px) {
+    .visit-grid {
+      grid-template-columns: 7fr 5fr;
+      gap: var(--space-9);
+    }
+    .visit-details {
+      padding-left: var(--space-7);
+      border-left: 1px solid rgba(245, 241, 234, 0.15);
+    }
+  }
+  .visit-kicker { color: rgba(245, 241, 234, 0.5); }
+  .visit-title {
+    font-size: clamp(56px, 11vw, 176px);
+    line-height: 0.88;
+    letter-spacing: -0.04em;
+    margin: var(--space-4) 0 0;
+  }
+  .visit-accent { color: var(--signal); }
+  .visit-lede {
+    font-size: clamp(20px, 2.4vw, 28px);
+    line-height: 1.4;
+    margin: var(--space-7) 0 0;
+    max-width: 56ch;
+    color: rgba(245, 241, 234, 0.80);
+  }
+  .visit-ctas {
+    margin-top: var(--space-9);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .visit-details { margin: 0; }
+  .visit-row {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-5);
+    padding: var(--space-5) 0;
+    border-bottom: 1px solid rgba(245, 241, 234, 0.15);
+  }
+  .visit-row-k { color: rgba(245, 241, 234, 0.5); margin: 0; }
+  .visit-row-v { margin: 0; text-align: right; }
+  .visit-row-v p { margin: 0; }
+  .visit-row-v .italic { color: rgba(245, 241, 234, 0.40); font-size: 16px; }
+
+  /* ============================================================== */
+  /* FOOTER                                                         */
+  /* ============================================================== */
+  .footer {
+    background: #070707;
+    color: var(--bone);
+    padding: var(--space-7) 0 var(--space-6);
+  }
+  .footer-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-6);
+    flex-wrap: wrap;
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid rgba(245, 241, 234, 0.10);
+  }
+  .footer-mark {
+    font-size: clamp(40px, 5vw, 56px);
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+  .footer-tag {
+    font-size: 18px;
+    color: rgba(245, 241, 234, 0.60);
+    margin: var(--space-3) 0 0;
+  }
+  .footer-social {
+    display: flex;
+    gap: var(--space-7);
+  }
+  .footer-link {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245, 241, 234, 0.70);
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size var(--dur) var(--ease), color var(--dur-fast) var(--ease);
+    padding-bottom: 2px;
+  }
+  .footer-link:hover { background-size: 100% 1px; color: var(--bone); }
+
+  .footer-bottom {
+    margin-top: var(--space-5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-3);
+    align-items: center;
+  }
+  .footer-fine { color: rgba(245, 241, 234, 0.40); margin: 0; }
+  .footer-fine-mid { color: rgba(245, 241, 234, 0.40); }
+  .footer-status {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: rgba(245, 241, 234, 0.40);
+  }
+
+  /* ============================================================== */
+  /* STICKY MOBILE                                                  */
+  /* ============================================================== */
+  .sticky-cta {
+    display: none;
+  }
+  @media (max-width: 899px) {
+    .sticky-cta {
+      display: block;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: var(--space-4) var(--space-5) calc(var(--space-4) + env(safe-area-inset-bottom, 0px));
+      background: rgba(245, 241, 234, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--hairline);
+      z-index: 50;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+      pointer-events: none;
+    }
+    .sticky-cta.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .sticky-cta .cta-pink { width: 100%; justify-content: center; }
+    body { padding-bottom: 96px; }
+  }
+</style>

@@ -1,0 +1,11 @@
+A designed mobile landing page first viewport, portrait orientation, styled as a vintage Vogue or McCall's sewing pattern envelope. This is a graphic design composition, not a photograph.
+
+Top region (about 10% of height): a small inked title "NAP — pattern 01" set in condensed serif uppercase as if printed on a manila pattern envelope, with a subtle rectangular envelope label border.
+
+Center region (about 55% of height): three lettered figure views stacked vertically down the page, lettered A, B, C in small circled numerals. Each view is a small dry-gouache pastel illustration of a beauty scene with a dashed cut-line tracing its outline — view A (top) shows a manicured hand holding a brush, view B (middle) shows a close-up eye with extended lashes, view C (bottom) shows a finished nail-and-lash result. View B is traced in solid dressmaker red, while A and C remain dashed black ink. Each figure has a small circled number beside it.
+
+Below the figures (about 15% of height): a small inked yardage table styled as pattern instruction, listing four services as pattern pieces with grain arrows — "Manicure", "Gel", "Lash Lift", "Lash Extensions" — in two columns with thin ink rules.
+
+Bottom region (about 12% of height): a solid dressmaker red CTA bar with cream serif text "Cut along the line".
+
+Background fills the entire viewport: warm manila tissue paper texture in #F1E5CE with subtle fiber grain, faint age spots, and a soft ruled grid. Drafting ink marks in #0F0F0F, dressmaker red #C0392B for the selected view trace and CTA, muted green #3F5A4F for grain arrows and table accents. Dashed cut lines evoke tailoring pattern instructions. Vintage Vogue / McCall's pattern envelope mood — tactile, paper-craft, drafting ink, pastel gouache, numbered figure views, no photorealism.

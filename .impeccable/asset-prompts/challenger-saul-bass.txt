@@ -1,0 +1,15 @@
+A designed mobile landing page first viewport, portrait 9:16 aspect ratio. NOT a photograph. NOT a poster print. Saul Bass / Vertigo / Anatomy of a Murder title-card mood: flat, asymmetric, cut-paper, single idea per field. No decorative elements, no ornaments, no extra text. Only the elements listed below — nothing else on the canvas.
+
+Canvas: one single flat burnt-orange #D9602A color field filling the entire frame. No gradient. No texture. No vignette. No noise. Pure flat color.
+
+Upper-middle region, occupying roughly the central third: one single solid black cut-paper silhouette of a human hand gripping a nail brush, executed as a pure flat black shape with NO shading, NO gradient, NO highlights, NO inner detail, NO outlines, NO separate strokes. The brush handle extends through the grip, with a small brush tip bristling on one end. The whole shape is one continuous flat black silhouette.
+
+Directly below the silhouette, centered horizontally: the phrase "BOOK IN FOUR" in skinny condensed sans-serif capitals, solid black, hand-set with a slightly off-axis baseline. Nothing else next to or under this line.
+
+Top-left corner, padded in from the edges with margin: only the letters "NAP" in skinny condensed sans-serif capitals, solid black, small and legible. No other element in the top-left.
+
+Bottom edge of the canvas, anchored to the bottom and spanning the full width of the frame edge-to-edge: a single solid black rectangular bar. Inside the bar, centered, in skinny white condensed capitals: "See open slots". This is the only white text anywhere on the canvas.
+
+A single jittery hand-drawn horizontal black line (a rough imperfect marker stroke) sits in the lower third of the canvas, between the "BOOK IN FOUR" text and the bottom black bar, breaking the geometric flat layout as a live-element cue. It is a single horizontal line, not multiple.
+
+Strict rules: no photo realism, no 3D, no shadows, no rounded corners, no card chrome, no UI furniture beyond what is listed. No additional copy, no watermark, no signature, no extra letters anywhere on the canvas. Five elements only: the orange field, the black hand+brush silhouette, the "BOOK IN FOUR" text, the "NAP" mark, and the bottom black bar with "See open slots". Plus the single jittery hand-drawn line. One field, one silhouette, three text marks (one inside the bar), one bar, one line.

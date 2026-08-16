@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "project": {
+    "name": "nap-scaffold",
+    "productType": null,
+    "stack": [
+      "astro"
+    ]
+  },
+  "sources": {
+    "tokens": [],
+    "components": [],
+    "assets": [
+      "public/assets"
+    ],
+    "instructions": [
+      "DESIGN.md",
+      "PRODUCT.md",
+      "AGENTS.md"
+    ]
+  },
+  "design": {
+    "colorMode": "unknown",
+    "colors": {},
+    "typography": {},
+    "spacing": {},
+    "radius": {},
+    "shadows": {},
+    "motion": {},
+    "density": "unknown"
+  },
+  "components": {
+    "installed": [],
+    "preferredPrimitives": [],
+    "patterns": []
+  },
+  "constraints": {
+    "must": [],
+    "avoid": []
+  },
+  "decisions": [
+    {
+      "id": "generation:9e07043f-43cc-4a50-8df9-dd4e2105ab1c",
+      "decision": "Selected take 3 from 21st generation 9e07043f-43cc-4a50-8df9-dd4e2105ab1c.",
+      "createdAt": "2026-08-16T06:59:11.516Z",
+      "source": "21st-cli"
+    }
+  ],
+  "evidence": [
+    {
+      "fact": "project.instructions",
+      "source": "AGENTS.md"
+    },
+    {
+      "fact": "project.instructions",
+      "source": "DESIGN.md"
+    },
+    {
+      "fact": "project.instructions",
+      "source": "PRODUCT.md"
+    },
+    {
+      "fact": "project.stack:astro",
+      "source": "package.json"
+    }
+  ],
+  "generatedAt": "2026-08-16T06:59:11.517Z"
+}
